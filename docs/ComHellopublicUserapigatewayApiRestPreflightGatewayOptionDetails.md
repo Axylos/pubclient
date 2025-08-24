@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BaseSymbol** | **string** |  | 
-**Type** | **string** |  | 
+**Type** | [**ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType**](ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType.md) |  | 
 **StrikePrice** | **string** |  | 
 **OptionExpireDate** | **string** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails
 
-`func NewComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails(baseSymbol string, type_ string, strikePrice string, optionExpireDate string, ) *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails`
+`func NewComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails(baseSymbol string, type_ ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType, strikePrice string, optionExpireDate string, ) *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails`
 
 NewComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails instantiates a new ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails object
 This constructor will assign default values to properties that have it defined,
@@ -50,20 +50,20 @@ SetBaseSymbol sets BaseSymbol field to given value.
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetType() string`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetType() ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) SetType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) SetType(v ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType)`
 
 SetType sets Type field to given value.
 

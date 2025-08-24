@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Symbol** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to [**ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType**](ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType.md) |  | [optional] 
 
 ## Methods
 
@@ -79,20 +79,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetType() string`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetType() ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) SetType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) SetType(v ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType)`
 
 SetType sets Type field to given value.
 

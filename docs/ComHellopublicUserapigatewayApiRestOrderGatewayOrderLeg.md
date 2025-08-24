@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Instrument** | [**ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument**](ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument.md) |  | 
-**Side** | **string** |  | 
-**OpenCloseIndicator** | Pointer to **string** | required when instrument.type &#x3D; OPTION, used to determine if the leg is buy-to-open or buy-to-close | [optional] 
+**Side** | [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide.md) |  | 
+**OpenCloseIndicator** | Pointer to [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator.md) |  | [optional] 
 **RatioQuantity** | Pointer to **int32** | The ratio between legs. Equity legs will typically be 100 shares, and option legs 1 contract | [optional] 
 
 ## Methods
 
 ### NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg
 
-`func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg(instrument ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument, side string, ) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg`
+`func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg(instrument ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument, side ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, ) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg`
 
 NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg instantiates a new ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg object
 This constructor will assign default values to properties that have it defined,
@@ -50,40 +50,40 @@ SetInstrument sets Instrument field to given value.
 
 ### GetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSide() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSide() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide`
 
 GetSide returns the Side field if non-nil, zero value otherwise.
 
 ### GetSideOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSideOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSideOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, bool)`
 
 GetSideOk returns a tuple with the Side field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetSide(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetSide(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide)`
 
 SetSide sets Side field to given value.
 
 
 ### GetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicator() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator`
 
 GetOpenCloseIndicator returns the OpenCloseIndicator field if non-nil, zero value otherwise.
 
 ### GetOpenCloseIndicatorOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicatorOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator, bool)`
 
 GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetOpenCloseIndicator(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator)`
 
 SetOpenCloseIndicator sets OpenCloseIndicator field to given value.
 

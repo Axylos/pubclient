@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TimeInForce** | **string** | The time in for the order | 
+**TimeInForce** | [**ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce**](ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce.md) |  | 
 **ExpirationTime** | Pointer to **time.Time** | The expiration date. Only used when timeInForce is GTD, cannot be more than 90 days in the future | [optional] 
 
 ## Methods
 
 ### NewComHellopublicUserapigatewayApiRestOrderOrderExpiration
 
-`func NewComHellopublicUserapigatewayApiRestOrderOrderExpiration(timeInForce string, ) *ComHellopublicUserapigatewayApiRestOrderOrderExpiration`
+`func NewComHellopublicUserapigatewayApiRestOrderOrderExpiration(timeInForce ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce, ) *ComHellopublicUserapigatewayApiRestOrderOrderExpiration`
 
 NewComHellopublicUserapigatewayApiRestOrderOrderExpiration instantiates a new ComHellopublicUserapigatewayApiRestOrderOrderExpiration object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTimeInForce
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForce() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForce() ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce`
 
 GetTimeInForce returns the TimeInForce field if non-nil, zero value otherwise.
 
 ### GetTimeInForceOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForceOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForceOk() (*ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce, bool)`
 
 GetTimeInForceOk returns a tuple with the TimeInForce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimeInForce
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) SetTimeInForce(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) SetTimeInForce(v ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce)`
 
 SetTimeInForce sets TimeInForce field to given value.
 

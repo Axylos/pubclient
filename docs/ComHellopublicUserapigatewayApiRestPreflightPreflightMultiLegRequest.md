@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderType** | **string** |  | 
+**OrderType** | [**ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType**](ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType.md) |  | 
 **Expiration** | [**ComHellopublicUserapigatewayApiRestOrderOrderExpiration**](ComHellopublicUserapigatewayApiRestOrderOrderExpiration.md) |  | 
 **Quantity** | Pointer to **string** |  | [optional] 
 **LimitPrice** | **string** |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest
 
-`func NewComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest(orderType string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, limitPrice string, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg, ) *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest`
+`func NewComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest(orderType ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, limitPrice string, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg, ) *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest`
 
 NewComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest instantiates a new ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest object
 This constructor will assign default values to properties that have it defined,
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetOrderType
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderType() string`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderType() ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType`
 
 GetOrderType returns the OrderType field if non-nil, zero value otherwise.
 
 ### GetOrderTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType, bool)`
 
 GetOrderTypeOk returns a tuple with the OrderType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrderType
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) SetOrderType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) SetOrderType(v ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType)`
 
 SetOrderType sets OrderType field to given value.
 

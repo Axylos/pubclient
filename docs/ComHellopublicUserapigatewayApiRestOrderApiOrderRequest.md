@@ -6,20 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrderId** | **string** | The OrderId, globally unique over time. This is also the deduplication key, if it is reused (on the same account) the operation is idempotent.  If you re-submit the order because of a read timeout, do not edit any properties. If the order was placed on the first request, altering properties  will not have an effect. | 
 **Instrument** | [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument.md) |  | 
-**OrderSide** | **string** | The Order Side BUY/SELL. For Options also include the openCloseIndicator | 
-**OrderType** | **string** | The Type of order | 
+**OrderSide** | [**ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide**](ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide.md) |  | 
+**OrderType** | [**ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType**](ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType.md) |  | 
 **Expiration** | [**ComHellopublicUserapigatewayApiRestOrderOrderExpiration**](ComHellopublicUserapigatewayApiRestOrderOrderExpiration.md) |  | 
 **Quantity** | Pointer to **string** | The order quantity. Used when buying/selling whole shares and when selling fractional.  Mutually exclusive with &#x60;amount&#x60; | [optional] 
 **Amount** | Pointer to **string** | The order amount. Used when buying/selling shares for a specific notional value | [optional] 
 **LimitPrice** | Pointer to **string** | The limit price. Used when orderType &#x3D; LIMIT or orderType &#x3D; STOP_LIMIT | [optional] 
 **StopPrice** | Pointer to **string** | The stop price. Used when orderType &#x3D; STOP or orderType &#x3D; STOP_LIMIT | [optional] 
-**OpenCloseIndicator** | Pointer to **string** | Used for options only. Indicates if this is BUY to OPEN/CLOSE | [optional] 
+**OpenCloseIndicator** | Pointer to [**ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator**](ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator.md) |  | [optional] 
 
 ## Methods
 
 ### NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest
 
-`func NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest(orderId string, instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, orderSide string, orderType string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, ) *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest`
+`func NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest(orderId string, instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, orderSide ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide, orderType ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, ) *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest`
 
 NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest instantiates a new ComHellopublicUserapigatewayApiRestOrderApiOrderRequest object
 This constructor will assign default values to properties that have it defined,
@@ -76,40 +76,40 @@ SetInstrument sets Instrument field to given value.
 
 ### GetOrderSide
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSide() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSide() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide`
 
 GetOrderSide returns the OrderSide field if non-nil, zero value otherwise.
 
 ### GetOrderSideOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSideOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSideOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide, bool)`
 
 GetOrderSideOk returns a tuple with the OrderSide field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrderSide
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderSide(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderSide(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide)`
 
 SetOrderSide sets OrderSide field to given value.
 
 
 ### GetOrderType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderType() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderType() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType`
 
 GetOrderType returns the OrderType field if non-nil, zero value otherwise.
 
 ### GetOrderTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType, bool)`
 
 GetOrderTypeOk returns a tuple with the OrderType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrderType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderType(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType)`
 
 SetOrderType sets OrderType field to given value.
 
@@ -236,20 +236,20 @@ HasStopPrice returns a boolean if a field has been set.
 
 ### GetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicator() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator`
 
 GetOpenCloseIndicator returns the OpenCloseIndicator field if non-nil, zero value otherwise.
 
 ### GetOpenCloseIndicatorOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicatorOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator, bool)`
 
 GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOpenCloseIndicator(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator)`
 
 SetOpenCloseIndicator sets OpenCloseIndicator field to given value.
 

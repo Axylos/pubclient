@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Instrument** | [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument.md) |  | 
-**Side** | **string** |  | 
-**OpenCloseIndicator** | Pointer to **string** |  | [optional] 
+**Side** | [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide.md) |  | 
+**OpenCloseIndicator** | Pointer to [**ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator**](ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator.md) |  | [optional] 
 **RatioQuantity** | **int32** |  | 
 **OptionDetails** | Pointer to [**ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails**](ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails.md) |  | [optional] 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse
 
-`func NewComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, side string, ratioQuantity int32, ) *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse`
+`func NewComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, side ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, ratioQuantity int32, ) *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse`
 
 NewComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse instantiates a new ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,40 +51,40 @@ SetInstrument sets Instrument field to given value.
 
 ### GetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSide() string`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSide() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide`
 
 GetSide returns the Side field if non-nil, zero value otherwise.
 
 ### GetSideOk
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSideOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSideOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, bool)`
 
 GetSideOk returns a tuple with the Side field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetSide(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetSide(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide)`
 
 SetSide sets Side field to given value.
 
 
 ### GetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicator() string`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator`
 
 GetOpenCloseIndicator returns the OpenCloseIndicator field if non-nil, zero value otherwise.
 
 ### GetOpenCloseIndicatorOk
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicatorOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator, bool)`
 
 GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetOpenCloseIndicator(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator)`
 
 SetOpenCloseIndicator sets OpenCloseIndicator field to given value.
 

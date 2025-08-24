@@ -22,8 +22,8 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestPreflightPreflightLeg
 // ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse # PreflightLegResponse Response containing information about an individual leg in a multi-leg order preflight calculation.  ## Fields  ### Instrument Information - **instrument** - The trading instrument for this leg - **side** - The order side (BUY/SELL) for this leg - **openCloseIndicator** - Position effect for option legs (BUY_TO_OPEN, BUY_TO_CLOSE, etc.) - **ratioQuantity** - The ratio quantity for this leg in the strategy  ### Cost and Fee Information - **estimatedCommission** - The estimated commission for this specific leg - **estimatedCost** - The estimated cost for this leg including fees - **estimatedProceeds** - The estimated proceeds for this leg (for sell legs)  ### Option-Specific Information - **optionDetails** - Option-specific details like strike price, expiration, fees, and rebates
 type ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse struct {
 	Instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument `json:"instrument"`
-	Side string `json:"side"`
-	OpenCloseIndicator *string `json:"openCloseIndicator,omitempty"`
+	Side ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide `json:"side"`
+	OpenCloseIndicator *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator `json:"openCloseIndicator,omitempty"`
 	RatioQuantity int32 `json:"ratioQuantity"`
 	OptionDetails *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails `json:"optionDetails,omitempty"`
 }
@@ -34,7 +34,7 @@ type _ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse ComHellop
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, side string, ratioQuantity int32) *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse {
+func NewComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, side ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, ratioQuantity int32) *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse {
 	this := ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse{}
 	this.Instrument = instrument
 	this.Side = side
@@ -75,9 +75,9 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetIn
 }
 
 // GetSide returns the Side field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSide() string {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSide() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide
 		return ret
 	}
 
@@ -86,7 +86,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSi
 
 // GetSideOk returns a tuple with the Side field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSideOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSideOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -94,14 +94,14 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetSi
 }
 
 // SetSide sets field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetSide(v string) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetSide(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide) {
 	o.Side = v
 }
 
 // GetOpenCloseIndicator returns the OpenCloseIndicator field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicator() string {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator
 		return ret
 	}
 	return *o.OpenCloseIndicator
@@ -109,7 +109,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOp
 
 // GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicatorOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator, bool) {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
 		return nil, false
 	}
@@ -125,8 +125,8 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) HasOp
 	return false
 }
 
-// SetOpenCloseIndicator gets a reference to the given string and assigns it to the OpenCloseIndicator field.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetOpenCloseIndicator(v string) {
+// SetOpenCloseIndicator gets a reference to the given ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator and assigns it to the OpenCloseIndicator field.
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponse) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestPreflightPreflightLegResponseOpenCloseIndicator) {
 	o.OpenCloseIndicator = &v
 }
 

@@ -22,9 +22,8 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg{
 // ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg Option or equity leg. There can never be more than 1 equity leg.
 type ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg struct {
 	Instrument ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument `json:"instrument"`
-	Side string `json:"side"`
-	// required when instrument.type = OPTION, used to determine if the leg is buy-to-open or buy-to-close
-	OpenCloseIndicator *string `json:"openCloseIndicator,omitempty"`
+	Side ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide `json:"side"`
+	OpenCloseIndicator *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator `json:"openCloseIndicator,omitempty"`
 	// The ratio between legs. Equity legs will typically be 100 shares, and option legs 1 contract
 	RatioQuantity *int32 `json:"ratioQuantity,omitempty"`
 }
@@ -35,7 +34,7 @@ type _ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg ComHellopublicUser
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg(instrument ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument, side string) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg {
+func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg(instrument ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument, side ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg {
 	this := ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg{}
 	this.Instrument = instrument
 	this.Side = side
@@ -75,9 +74,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetInstrument(
 }
 
 // GetSide returns the Side field value
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSide() string {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSide() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide
 		return ret
 	}
 
@@ -86,7 +85,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSide() stri
 
 // GetSideOk returns a tuple with the Side field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSideOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSideOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -94,14 +93,14 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetSideOk() (*
 }
 
 // SetSide sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetSide(v string) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetSide(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide) {
 	o.Side = v
 }
 
 // GetOpenCloseIndicator returns the OpenCloseIndicator field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicator() string {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator
 		return ret
 	}
 	return *o.OpenCloseIndicator
@@ -109,7 +108,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIn
 
 // GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicatorOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator, bool) {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
 		return nil, false
 	}
@@ -125,8 +124,8 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) HasOpenCloseIn
 	return false
 }
 
-// SetOpenCloseIndicator gets a reference to the given string and assigns it to the OpenCloseIndicator field.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetOpenCloseIndicator(v string) {
+// SetOpenCloseIndicator gets a reference to the given ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator and assigns it to the OpenCloseIndicator field.
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegOpenCloseIndicator) {
 	o.OpenCloseIndicator = &v
 }
 

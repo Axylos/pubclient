@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Instrument** | [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument.md) |  | 
-**Trading** | **string** |  | 
-**FractionalTrading** | **string** |  | 
-**OptionTrading** | **string** |  | 
-**OptionSpreadTrading** | **string** |  | 
+**Trading** | [**GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) |  | 
+**FractionalTrading** | [**GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) |  | 
+**OptionTrading** | [**GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) |  | 
+**OptionSpreadTrading** | [**GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) |  | 
 
 ## Methods
 
 ### NewComHellopublicUserapigatewayApiRestOrderApiInstrumentDto
 
-`func NewComHellopublicUserapigatewayApiRestOrderApiInstrumentDto(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, trading string, fractionalTrading string, optionTrading string, optionSpreadTrading string, ) *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto`
+`func NewComHellopublicUserapigatewayApiRestOrderApiInstrumentDto(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, trading GetAllInstrumentsTradingFilterParameterInner, fractionalTrading GetAllInstrumentsTradingFilterParameterInner, optionTrading GetAllInstrumentsTradingFilterParameterInner, optionSpreadTrading GetAllInstrumentsTradingFilterParameterInner, ) *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto`
 
 NewComHellopublicUserapigatewayApiRestOrderApiInstrumentDto instantiates a new ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto object
 This constructor will assign default values to properties that have it defined,
@@ -51,80 +51,80 @@ SetInstrument sets Instrument field to given value.
 
 ### GetTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTrading() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTrading() GetAllInstrumentsTradingFilterParameterInner`
 
 GetTrading returns the Trading field if non-nil, zero value otherwise.
 
 ### GetTradingOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTradingOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool)`
 
 GetTradingOk returns a tuple with the Trading field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetTrading(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetTrading(v GetAllInstrumentsTradingFilterParameterInner)`
 
 SetTrading sets Trading field to given value.
 
 
 ### GetFractionalTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTrading() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTrading() GetAllInstrumentsTradingFilterParameterInner`
 
 GetFractionalTrading returns the FractionalTrading field if non-nil, zero value otherwise.
 
 ### GetFractionalTradingOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTradingOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool)`
 
 GetFractionalTradingOk returns a tuple with the FractionalTrading field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFractionalTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetFractionalTrading(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetFractionalTrading(v GetAllInstrumentsTradingFilterParameterInner)`
 
 SetFractionalTrading sets FractionalTrading field to given value.
 
 
 ### GetOptionTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTrading() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTrading() GetAllInstrumentsTradingFilterParameterInner`
 
 GetOptionTrading returns the OptionTrading field if non-nil, zero value otherwise.
 
 ### GetOptionTradingOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTradingOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool)`
 
 GetOptionTradingOk returns a tuple with the OptionTrading field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOptionTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionTrading(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionTrading(v GetAllInstrumentsTradingFilterParameterInner)`
 
 SetOptionTrading sets OptionTrading field to given value.
 
 
 ### GetOptionSpreadTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTrading() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTrading() GetAllInstrumentsTradingFilterParameterInner`
 
 GetOptionSpreadTrading returns the OptionSpreadTrading field if non-nil, zero value otherwise.
 
 ### GetOptionSpreadTradingOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTradingOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool)`
 
 GetOptionSpreadTradingOk returns a tuple with the OptionSpreadTrading field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOptionSpreadTrading
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionSpreadTrading(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionSpreadTrading(v GetAllInstrumentsTradingFilterParameterInner)`
 
 SetOptionSpreadTrading sets OptionSpreadTrading field to given value.
 

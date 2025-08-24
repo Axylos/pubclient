@@ -25,8 +25,7 @@ type ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest struct {
 	OrderId string `json:"orderId"`
 	// The order quantity
 	Quantity int32 `json:"quantity"`
-	// The order type. Only LIMIT order are allowed
-	Type string `json:"type"`
+	Type ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType `json:"type"`
 	// The limit price for the order. For debit spreads the limit price must be positive, for create spreads the limit price is negative
 	LimitPrice string `json:"limitPrice"`
 	Expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration `json:"expiration"`
@@ -40,7 +39,7 @@ type _ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest ComHellopu
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest(orderId string, quantity int32, type_ string, limitPrice string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest {
+func NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest(orderId string, quantity int32, type_ ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType, limitPrice string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest {
 	this := ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest{}
 	this.OrderId = orderId
 	this.Quantity = quantity
@@ -108,9 +107,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) SetQua
 }
 
 // GetType returns the Type field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetType() string {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetType() ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType
 		return ret
 	}
 
@@ -119,7 +118,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetTyp
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetTypeOk() (*ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -127,7 +126,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetTyp
 }
 
 // SetType sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) SetType(v string) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) SetType(v ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType) {
 	o.Type = v
 }
 

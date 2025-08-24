@@ -7,16 +7,16 @@ Name | Type | Description | Notes
 **OrderId** | Pointer to **string** |  | [optional] 
 **Instrument** | Pointer to [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument.md) |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** | Creation time of the order | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
-**Side** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to [**ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType**](ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType.md) |  | [optional] 
+**Side** | Pointer to [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide.md) |  | [optional] 
+**Status** | Pointer to [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus.md) |  | [optional] 
 **Quantity** | Pointer to **string** | Quantity of the order, mutually exclusive with notional value | [optional] 
 **NotionalValue** | Pointer to **string** | Notional value (dollar amount) of the order, mutually exclusive with quantity | [optional] 
 **Expiration** | Pointer to [**ComHellopublicUserapigatewayApiRestOrderOrderExpiration**](ComHellopublicUserapigatewayApiRestOrderOrderExpiration.md) |  | [optional] 
 **LimitPrice** | Pointer to **string** | Present if type &#x3D; LIMIT | [optional] 
 **StopPrice** | Pointer to **string** | Present if type &#x3D; STOP | [optional] 
 **ClosedAt** | Pointer to **time.Time** | The time the order reached a terminal state, like CANCELLED, FILLED, REJECTED, REPLACED | [optional] 
-**OpenCloseIndicator** | Pointer to **string** | Present if the order is a single-leg option order | [optional] 
+**OpenCloseIndicator** | Pointer to [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator.md) |  | [optional] 
 **FilledQuantity** | Pointer to **string** | The filled quantity of the order, present if the order had at least one trade | [optional] 
 **AveragePrice** | Pointer to **string** | The average price per unit, present if the order had at least one trade | [optional] 
 **Legs** | Pointer to [**[]ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg.md) | If instrument.type &#x3D; MULTI_LEG_INSTRUMENT, this contains the list of legs | [optional] 
@@ -117,20 +117,20 @@ HasCreatedAt returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetType() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetType() ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetType(v ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType)`
 
 SetType sets Type field to given value.
 
@@ -142,20 +142,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSide() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSide() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide`
 
 GetSide returns the Side field if non-nil, zero value otherwise.
 
 ### GetSideOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSideOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSideOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, bool)`
 
 GetSideOk returns a tuple with the Side field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetSide(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetSide(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide)`
 
 SetSide sets Side field to given value.
 
@@ -167,20 +167,20 @@ HasSide returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatus() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatus() ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatusOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatusOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetStatus(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetStatus(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -342,20 +342,20 @@ HasClosedAt returns a boolean if a field has been set.
 
 ### GetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicator() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator`
 
 GetOpenCloseIndicator returns the OpenCloseIndicator field if non-nil, zero value otherwise.
 
 ### GetOpenCloseIndicatorOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicatorOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator, bool)`
 
 GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOpenCloseIndicator
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetOpenCloseIndicator(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator)`
 
 SetOpenCloseIndicator sets OpenCloseIndicator field to given value.
 

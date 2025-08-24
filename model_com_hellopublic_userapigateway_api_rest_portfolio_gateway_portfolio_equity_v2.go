@@ -21,8 +21,7 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestPortfolioGatewayPortf
 
 // ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2 Portfolio equity summary
 type ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2 struct {
-	// Type of asset.
-	Type string `json:"type"`
+	Type ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2Type `json:"type"`
 	// Total value for the given asset type.
 	Value string `json:"value"`
 	// The percentage of the portfolio this asset type constitutes.                               The percentage number is given with 2 decimals.
@@ -35,7 +34,7 @@ type _ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2 ComHe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2(type_ string, value string) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2 {
+func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2(type_ ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2Type, value string) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2 {
 	this := ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2{}
 	this.Type = type_
 	this.Value = value
@@ -51,9 +50,9 @@ func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2With
 }
 
 // GetType returns the Type field value
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) GetType() string {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) GetType() ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2Type {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2Type
 		return ret
 	}
 
@@ -62,7 +61,7 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) G
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) GetTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2Type, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,7 +69,7 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) G
 }
 
 // SetType sets field value
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) SetType(v string) {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2) SetType(v ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2Type) {
 	o.Type = v
 }
 

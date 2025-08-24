@@ -24,10 +24,8 @@ type ComHellopublicUserapigatewayApiRestOrderApiOrderRequest struct {
 	// The OrderId, globally unique over time. This is also the deduplication key, if it is reused (on the same account) the operation is idempotent.  If you re-submit the order because of a read timeout, do not edit any properties. If the order was placed on the first request, altering properties  will not have an effect.
 	OrderId string `json:"orderId"`
 	Instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument `json:"instrument"`
-	// The Order Side BUY/SELL. For Options also include the openCloseIndicator
-	OrderSide string `json:"orderSide"`
-	// The Type of order
-	OrderType string `json:"orderType"`
+	OrderSide ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide `json:"orderSide"`
+	OrderType ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType `json:"orderType"`
 	Expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration `json:"expiration"`
 	// The order quantity. Used when buying/selling whole shares and when selling fractional.  Mutually exclusive with `amount`
 	Quantity *string `json:"quantity,omitempty"`
@@ -37,8 +35,7 @@ type ComHellopublicUserapigatewayApiRestOrderApiOrderRequest struct {
 	LimitPrice *string `json:"limitPrice,omitempty"`
 	// The stop price. Used when orderType = STOP or orderType = STOP_LIMIT
 	StopPrice *string `json:"stopPrice,omitempty"`
-	// Used for options only. Indicates if this is BUY to OPEN/CLOSE
-	OpenCloseIndicator *string `json:"openCloseIndicator,omitempty"`
+	OpenCloseIndicator *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator `json:"openCloseIndicator,omitempty"`
 }
 
 type _ComHellopublicUserapigatewayApiRestOrderApiOrderRequest ComHellopublicUserapigatewayApiRestOrderApiOrderRequest
@@ -47,7 +44,7 @@ type _ComHellopublicUserapigatewayApiRestOrderApiOrderRequest ComHellopublicUser
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest(orderId string, instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, orderSide string, orderType string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration) *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest {
+func NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest(orderId string, instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, orderSide ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide, orderType ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration) *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest {
 	this := ComHellopublicUserapigatewayApiRestOrderApiOrderRequest{}
 	this.OrderId = orderId
 	this.Instrument = instrument
@@ -114,9 +111,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetInstrument(
 }
 
 // GetOrderSide returns the OrderSide field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSide() string {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSide() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide
 		return ret
 	}
 
@@ -125,7 +122,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSide()
 
 // GetOrderSideOk returns a tuple with the OrderSide field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSideOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSideOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -133,14 +130,14 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderSideOk
 }
 
 // SetOrderSide sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderSide(v string) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderSide(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide) {
 	o.OrderSide = v
 }
 
 // GetOrderType returns the OrderType field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderType() string {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderType() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType
 		return ret
 	}
 
@@ -149,7 +146,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderType()
 
 // GetOrderTypeOk returns a tuple with the OrderType field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -157,7 +154,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOrderTypeOk
 }
 
 // SetOrderType sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderType(v string) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOrderType(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType) {
 	o.OrderType = v
 }
 
@@ -314,9 +311,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetStopPrice(v
 }
 
 // GetOpenCloseIndicator returns the OpenCloseIndicator field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicator() string {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator
 		return ret
 	}
 	return *o.OpenCloseIndicator
@@ -324,7 +321,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIn
 
 // GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicatorOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator, bool) {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
 		return nil, false
 	}
@@ -340,8 +337,8 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) HasOpenCloseIn
 	return false
 }
 
-// SetOpenCloseIndicator gets a reference to the given string and assigns it to the OpenCloseIndicator field.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOpenCloseIndicator(v string) {
+// SetOpenCloseIndicator gets a reference to the given ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator and assigns it to the OpenCloseIndicator field.
+func (o *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator) {
 	o.OpenCloseIndicator = &v
 }
 

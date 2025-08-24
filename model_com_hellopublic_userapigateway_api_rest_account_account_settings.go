@@ -20,10 +20,10 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestAccountAccountSetting
 // ComHellopublicUserapigatewayApiRestAccountAccountSettings struct for ComHellopublicUserapigatewayApiRestAccountAccountSettings
 type ComHellopublicUserapigatewayApiRestAccountAccountSettings struct {
 	AccountId *string `json:"accountId,omitempty"`
-	AccountType *string `json:"accountType,omitempty"`
-	OptionsLevel *string `json:"optionsLevel,omitempty"`
-	BrokerageAccountType *string `json:"brokerageAccountType,omitempty"`
-	TradePermissions *string `json:"tradePermissions,omitempty"`
+	AccountType *ComHellopublicUserapigatewayApiRestUserAccountKycAccountType `json:"accountType,omitempty"`
+	OptionsLevel *ComHellopublicUserapigatewayApiRestAccountAccountSettingsOptionsLevel `json:"optionsLevel,omitempty"`
+	BrokerageAccountType *ComHellopublicUserapigatewayApiRestAccountAccountSettingsBrokerageAccountType `json:"brokerageAccountType,omitempty"`
+	TradePermissions *ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions `json:"tradePermissions,omitempty"`
 }
 
 // NewComHellopublicUserapigatewayApiRestAccountAccountSettings instantiates a new ComHellopublicUserapigatewayApiRestAccountAccountSettings object
@@ -76,9 +76,9 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetAccountId
 }
 
 // GetAccountType returns the AccountType field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetAccountType() string {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetAccountType() ComHellopublicUserapigatewayApiRestUserAccountKycAccountType {
 	if o == nil || IsNil(o.AccountType) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestUserAccountKycAccountType
 		return ret
 	}
 	return *o.AccountType
@@ -86,7 +86,7 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetAccountTy
 
 // GetAccountTypeOk returns a tuple with the AccountType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetAccountTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetAccountTypeOk() (*ComHellopublicUserapigatewayApiRestUserAccountKycAccountType, bool) {
 	if o == nil || IsNil(o.AccountType) {
 		return nil, false
 	}
@@ -102,15 +102,15 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) HasAccountTy
 	return false
 }
 
-// SetAccountType gets a reference to the given string and assigns it to the AccountType field.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetAccountType(v string) {
+// SetAccountType gets a reference to the given ComHellopublicUserapigatewayApiRestUserAccountKycAccountType and assigns it to the AccountType field.
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetAccountType(v ComHellopublicUserapigatewayApiRestUserAccountKycAccountType) {
 	o.AccountType = &v
 }
 
 // GetOptionsLevel returns the OptionsLevel field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetOptionsLevel() string {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetOptionsLevel() ComHellopublicUserapigatewayApiRestAccountAccountSettingsOptionsLevel {
 	if o == nil || IsNil(o.OptionsLevel) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestAccountAccountSettingsOptionsLevel
 		return ret
 	}
 	return *o.OptionsLevel
@@ -118,7 +118,7 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetOptionsLe
 
 // GetOptionsLevelOk returns a tuple with the OptionsLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetOptionsLevelOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetOptionsLevelOk() (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsOptionsLevel, bool) {
 	if o == nil || IsNil(o.OptionsLevel) {
 		return nil, false
 	}
@@ -134,15 +134,15 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) HasOptionsLe
 	return false
 }
 
-// SetOptionsLevel gets a reference to the given string and assigns it to the OptionsLevel field.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetOptionsLevel(v string) {
+// SetOptionsLevel gets a reference to the given ComHellopublicUserapigatewayApiRestAccountAccountSettingsOptionsLevel and assigns it to the OptionsLevel field.
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetOptionsLevel(v ComHellopublicUserapigatewayApiRestAccountAccountSettingsOptionsLevel) {
 	o.OptionsLevel = &v
 }
 
 // GetBrokerageAccountType returns the BrokerageAccountType field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetBrokerageAccountType() string {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetBrokerageAccountType() ComHellopublicUserapigatewayApiRestAccountAccountSettingsBrokerageAccountType {
 	if o == nil || IsNil(o.BrokerageAccountType) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestAccountAccountSettingsBrokerageAccountType
 		return ret
 	}
 	return *o.BrokerageAccountType
@@ -150,7 +150,7 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetBrokerage
 
 // GetBrokerageAccountTypeOk returns a tuple with the BrokerageAccountType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetBrokerageAccountTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetBrokerageAccountTypeOk() (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsBrokerageAccountType, bool) {
 	if o == nil || IsNil(o.BrokerageAccountType) {
 		return nil, false
 	}
@@ -166,15 +166,15 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) HasBrokerage
 	return false
 }
 
-// SetBrokerageAccountType gets a reference to the given string and assigns it to the BrokerageAccountType field.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetBrokerageAccountType(v string) {
+// SetBrokerageAccountType gets a reference to the given ComHellopublicUserapigatewayApiRestAccountAccountSettingsBrokerageAccountType and assigns it to the BrokerageAccountType field.
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetBrokerageAccountType(v ComHellopublicUserapigatewayApiRestAccountAccountSettingsBrokerageAccountType) {
 	o.BrokerageAccountType = &v
 }
 
 // GetTradePermissions returns the TradePermissions field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetTradePermissions() string {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetTradePermissions() ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions {
 	if o == nil || IsNil(o.TradePermissions) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions
 		return ret
 	}
 	return *o.TradePermissions
@@ -182,7 +182,7 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetTradePerm
 
 // GetTradePermissionsOk returns a tuple with the TradePermissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetTradePermissionsOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) GetTradePermissionsOk() (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions, bool) {
 	if o == nil || IsNil(o.TradePermissions) {
 		return nil, false
 	}
@@ -198,8 +198,8 @@ func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) HasTradePerm
 	return false
 }
 
-// SetTradePermissions gets a reference to the given string and assigns it to the TradePermissions field.
-func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetTradePermissions(v string) {
+// SetTradePermissions gets a reference to the given ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions and assigns it to the TradePermissions field.
+func (o *ComHellopublicUserapigatewayApiRestAccountAccountSettings) SetTradePermissions(v ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions) {
 	o.TradePermissions = &v
 }
 

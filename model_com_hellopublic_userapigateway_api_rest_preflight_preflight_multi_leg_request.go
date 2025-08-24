@@ -21,7 +21,7 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestPreflightPreflightMul
 
 // ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest # PreflightMultiLegRequest Request for preflight calculations on multi-leg orders.  ## Fields - **orderType** - The type of order (only LIMIT orders are allowed for multi-leg) - **expiration** - The order expiration configuration - **quantity** - The order quantity (number of strategies) - **limitPrice** - The limit price for the order (required for LIMIT orders) - **legs** - List of order legs (2-6 legs allowed, at most 1 equity leg) - **equityMarketSession** - The market session for equity legs
 type ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest struct {
-	OrderType string `json:"orderType"`
+	OrderType ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType `json:"orderType"`
 	Expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration `json:"expiration"`
 	Quantity *string `json:"quantity,omitempty"`
 	LimitPrice string `json:"limitPrice"`
@@ -34,7 +34,7 @@ type _ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest ComHe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest(orderType string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, limitPrice string, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest {
+func NewComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest(orderType ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, limitPrice string, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg) *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest {
 	this := ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest{}
 	this.OrderType = orderType
 	this.Expiration = expiration
@@ -52,9 +52,9 @@ func NewComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestWith
 }
 
 // GetOrderType returns the OrderType field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderType() string {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderType() ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) G
 
 // GetOrderTypeOk returns a tuple with the OrderType field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) GetOrderTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) G
 }
 
 // SetOrderType sets field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) SetOrderType(v string) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) SetOrderType(v ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType) {
 	o.OrderType = v
 }
 

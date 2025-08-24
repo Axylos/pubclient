@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Instrument** | [**ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument.md) |  | 
-**Outcome** | **string** | The outcome status of the quote request. | 
+**Outcome** | [**ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome**](ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome.md) |  | 
 **Last** | Pointer to **string** | The last traded price of the instrument. Can be null if no trades have occurred. | [optional] 
 **LastTimestamp** | Pointer to **time.Time** | Timestamp of when the last trade occurred. Can be null if no trades have occurred. | [optional] 
 **Bid** | Pointer to **string** | The current bid price (buying price) in the market. Can be null if no bid exists. | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote
 
-`func NewComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, outcome string, ) *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote`
+`func NewComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, outcome ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome, ) *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote`
 
 NewComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote instantiates a new ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote object
 This constructor will assign default values to properties that have it defined,
@@ -56,20 +56,20 @@ SetInstrument sets Instrument field to given value.
 
 ### GetOutcome
 
-`func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcome() string`
+`func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcome() ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome`
 
 GetOutcome returns the Outcome field if non-nil, zero value otherwise.
 
 ### GetOutcomeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcomeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcomeOk() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome, bool)`
 
 GetOutcomeOk returns a tuple with the Outcome field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutcome
 
-`func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) SetOutcome(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) SetOutcome(v ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome)`
 
 SetOutcome sets Outcome field to given value.
 

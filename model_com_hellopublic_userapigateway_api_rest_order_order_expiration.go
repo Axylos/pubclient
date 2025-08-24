@@ -22,8 +22,7 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestOrderOrderExpiration{
 
 // ComHellopublicUserapigatewayApiRestOrderOrderExpiration struct for ComHellopublicUserapigatewayApiRestOrderOrderExpiration
 type ComHellopublicUserapigatewayApiRestOrderOrderExpiration struct {
-	// The time in for the order
-	TimeInForce string `json:"timeInForce"`
+	TimeInForce ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce `json:"timeInForce"`
 	// The expiration date. Only used when timeInForce is GTD, cannot be more than 90 days in the future
 	ExpirationTime *time.Time `json:"expirationTime,omitempty"`
 }
@@ -34,7 +33,7 @@ type _ComHellopublicUserapigatewayApiRestOrderOrderExpiration ComHellopublicUser
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestOrderOrderExpiration(timeInForce string) *ComHellopublicUserapigatewayApiRestOrderOrderExpiration {
+func NewComHellopublicUserapigatewayApiRestOrderOrderExpiration(timeInForce ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce) *ComHellopublicUserapigatewayApiRestOrderOrderExpiration {
 	this := ComHellopublicUserapigatewayApiRestOrderOrderExpiration{}
 	this.TimeInForce = timeInForce
 	return &this
@@ -49,9 +48,9 @@ func NewComHellopublicUserapigatewayApiRestOrderOrderExpirationWithDefaults() *C
 }
 
 // GetTimeInForce returns the TimeInForce field value
-func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForce() string {
+func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForce() ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce
 		return ret
 	}
 
@@ -60,7 +59,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForce
 
 // GetTimeInForceOk returns a tuple with the TimeInForce field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForceOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForceOk() (*ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +67,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) GetTimeInForce
 }
 
 // SetTimeInForce sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) SetTimeInForce(v string) {
+func (o *ComHellopublicUserapigatewayApiRestOrderOrderExpiration) SetTimeInForce(v ComHellopublicUserapigatewayApiRestOrderOrderExpirationTimeInForce) {
 	o.TimeInForce = v
 }
 

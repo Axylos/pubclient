@@ -22,9 +22,9 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestUserAccountKyc{}
 // ComHellopublicUserapigatewayApiRestUserAccountKyc struct for ComHellopublicUserapigatewayApiRestUserAccountKyc
 type ComHellopublicUserapigatewayApiRestUserAccountKyc struct {
 	AccountNumber string `json:"accountNumber"`
-	AccountType string `json:"accountType"`
-	Objective *string `json:"objective,omitempty"`
-	RiskTolerance *string `json:"riskTolerance,omitempty"`
+	AccountType ComHellopublicUserapigatewayApiRestUserAccountKycAccountType `json:"accountType"`
+	Objective *ComHellopublicUserapigatewayApiRestUserAccountKycObjective `json:"objective,omitempty"`
+	RiskTolerance *ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance `json:"riskTolerance,omitempty"`
 }
 
 type _ComHellopublicUserapigatewayApiRestUserAccountKyc ComHellopublicUserapigatewayApiRestUserAccountKyc
@@ -33,7 +33,7 @@ type _ComHellopublicUserapigatewayApiRestUserAccountKyc ComHellopublicUserapigat
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestUserAccountKyc(accountNumber string, accountType string) *ComHellopublicUserapigatewayApiRestUserAccountKyc {
+func NewComHellopublicUserapigatewayApiRestUserAccountKyc(accountNumber string, accountType ComHellopublicUserapigatewayApiRestUserAccountKycAccountType) *ComHellopublicUserapigatewayApiRestUserAccountKyc {
 	this := ComHellopublicUserapigatewayApiRestUserAccountKyc{}
 	this.AccountNumber = accountNumber
 	this.AccountType = accountType
@@ -73,9 +73,9 @@ func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetAccountNumber(v s
 }
 
 // GetAccountType returns the AccountType field value
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountType() string {
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountType() ComHellopublicUserapigatewayApiRestUserAccountKycAccountType {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestUserAccountKycAccountType
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountType() str
 
 // GetAccountTypeOk returns a tuple with the AccountType field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountTypeOk() (*ComHellopublicUserapigatewayApiRestUserAccountKycAccountType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,14 +92,14 @@ func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountTypeOk() (
 }
 
 // SetAccountType sets field value
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetAccountType(v string) {
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetAccountType(v ComHellopublicUserapigatewayApiRestUserAccountKycAccountType) {
 	o.AccountType = v
 }
 
 // GetObjective returns the Objective field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjective() string {
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjective() ComHellopublicUserapigatewayApiRestUserAccountKycObjective {
 	if o == nil || IsNil(o.Objective) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestUserAccountKycObjective
 		return ret
 	}
 	return *o.Objective
@@ -107,7 +107,7 @@ func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjective() strin
 
 // GetObjectiveOk returns a tuple with the Objective field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjectiveOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjectiveOk() (*ComHellopublicUserapigatewayApiRestUserAccountKycObjective, bool) {
 	if o == nil || IsNil(o.Objective) {
 		return nil, false
 	}
@@ -123,15 +123,15 @@ func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) HasObjective() bool 
 	return false
 }
 
-// SetObjective gets a reference to the given string and assigns it to the Objective field.
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetObjective(v string) {
+// SetObjective gets a reference to the given ComHellopublicUserapigatewayApiRestUserAccountKycObjective and assigns it to the Objective field.
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetObjective(v ComHellopublicUserapigatewayApiRestUserAccountKycObjective) {
 	o.Objective = &v
 }
 
 // GetRiskTolerance returns the RiskTolerance field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskTolerance() string {
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskTolerance() ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance {
 	if o == nil || IsNil(o.RiskTolerance) {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance
 		return ret
 	}
 	return *o.RiskTolerance
@@ -139,7 +139,7 @@ func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskTolerance() s
 
 // GetRiskToleranceOk returns a tuple with the RiskTolerance field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskToleranceOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskToleranceOk() (*ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance, bool) {
 	if o == nil || IsNil(o.RiskTolerance) {
 		return nil, false
 	}
@@ -155,8 +155,8 @@ func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) HasRiskTolerance() b
 	return false
 }
 
-// SetRiskTolerance gets a reference to the given string and assigns it to the RiskTolerance field.
-func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetRiskTolerance(v string) {
+// SetRiskTolerance gets a reference to the given ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance and assigns it to the RiskTolerance field.
+func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetRiskTolerance(v ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance) {
 	o.RiskTolerance = &v
 }
 

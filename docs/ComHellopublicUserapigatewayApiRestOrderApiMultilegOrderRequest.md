@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrderId** | **string** | The OrderId, globally unique over time. This is also the deduplication key, if it is reused (on the same account) the operation is idempotent | 
 **Quantity** | **int32** | The order quantity | 
-**Type** | **string** | The order type. Only LIMIT order are allowed | 
+**Type** | [**ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType**](ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType.md) |  | 
 **LimitPrice** | **string** | The limit price for the order. For debit spreads the limit price must be positive, for create spreads the limit price is negative | 
 **Expiration** | [**ComHellopublicUserapigatewayApiRestOrderOrderExpiration**](ComHellopublicUserapigatewayApiRestOrderOrderExpiration.md) |  | 
 **Legs** | [**[]ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg**](ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg.md) | From 2-6 legs. There can be at most 1 equity leg | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest
 
-`func NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest(orderId string, quantity int32, type_ string, limitPrice string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg, ) *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest`
+`func NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest(orderId string, quantity int32, type_ ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType, limitPrice string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration, legs []ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg, ) *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest`
 
 NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest instantiates a new ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest object
 This constructor will assign default values to properties that have it defined,
@@ -72,20 +72,20 @@ SetQuantity sets Quantity field to given value.
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetType() string`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetType() ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) GetTypeOk() (*ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) SetType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) SetType(v ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequestType)`
 
 SetType sets Type field to given value.
 

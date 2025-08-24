@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Timestamp** | Pointer to **time.Time** | The timestamp when the transaction happened | [optional] 
 **Id** | Pointer to **string** | The id of the transaction | [optional] 
-**Type** | Pointer to **string** | The type of the transaction | [optional] 
-**SubType** | Pointer to **string** | The subtype of the transaction | [optional] 
+**Type** | Pointer to [**ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType**](ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType.md) |  | [optional] 
+**SubType** | Pointer to [**ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType**](ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType.md) |  | [optional] 
 **AccountNumber** | Pointer to **string** | The account the transaction happened on | [optional] 
 **Symbol** | Pointer to **string** | The symbol of the transaction | [optional] 
-**SecurityType** | Pointer to **string** | The security type of the transaction | [optional] 
-**Side** | Pointer to **string** | The side of the transaction - relevant for trades | [optional] 
+**SecurityType** | Pointer to [**ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType**](ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType.md) |  | [optional] 
+**Side** | Pointer to [**ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide**](ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide.md) |  | [optional] 
 **Description** | Pointer to **string** | The description of the transaction | [optional] 
 **NetAmount** | Pointer to **string** | The net amount of the transaction | [optional] 
 **PrincipalAmount** | Pointer to **string** | The principal amount of the transaction | [optional] 
 **Quantity** | Pointer to **string** | The quantity of the transaction | [optional] 
-**Direction** | Pointer to **string** | The direction of the transaction | [optional] 
+**Direction** | Pointer to [**ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection**](ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection.md) |  | [optional] 
 **Fees** | Pointer to **string** | The fees of the transaction | [optional] 
 
 ## Methods
@@ -90,20 +90,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetType() string`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetType() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetTypeOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetType(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType)`
 
 SetType sets Type field to given value.
 
@@ -115,20 +115,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetSubType
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubType() string`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubType() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType`
 
 GetSubType returns the SubType field if non-nil, zero value otherwise.
 
 ### GetSubTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubTypeOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType, bool)`
 
 GetSubTypeOk returns a tuple with the SubType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubType
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSubType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSubType(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType)`
 
 SetSubType sets SubType field to given value.
 
@@ -190,20 +190,20 @@ HasSymbol returns a boolean if a field has been set.
 
 ### GetSecurityType
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityType() string`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityType() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType`
 
 GetSecurityType returns the SecurityType field if non-nil, zero value otherwise.
 
 ### GetSecurityTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityTypeOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityTypeOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType, bool)`
 
 GetSecurityTypeOk returns a tuple with the SecurityType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSecurityType
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSecurityType(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSecurityType(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType)`
 
 SetSecurityType sets SecurityType field to given value.
 
@@ -215,20 +215,20 @@ HasSecurityType returns a boolean if a field has been set.
 
 ### GetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSide() string`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSide() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide`
 
 GetSide returns the Side field if non-nil, zero value otherwise.
 
 ### GetSideOk
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSideOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSideOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide, bool)`
 
 GetSideOk returns a tuple with the Side field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSide
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSide(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSide(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide)`
 
 SetSide sets Side field to given value.
 
@@ -340,20 +340,20 @@ HasQuantity returns a boolean if a field has been set.
 
 ### GetDirection
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirection() string`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirection() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection`
 
 GetDirection returns the Direction field if non-nil, zero value otherwise.
 
 ### GetDirectionOk
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirectionOk() (*string, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirectionOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection, bool)`
 
 GetDirectionOk returns a tuple with the Direction field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDirection
 
-`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetDirection(v string)`
+`func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetDirection(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection)`
 
 SetDirection sets Direction field to given value.
 

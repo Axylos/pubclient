@@ -171,7 +171,7 @@ import (
 
 func main() {
 	accountId := "accountId_example" // string | 
-	comHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest := *openapiclient.NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest("OrderId_example", int32(123), "Type_example", "LimitPrice_example", *openapiclient.NewComHellopublicUserapigatewayApiRestOrderOrderExpiration("TimeInForce_example"), []openapiclient.ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg{*openapiclient.NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg(*openapiclient.NewComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument("Symbol_example", "Type_example"), "Side_example")}) // ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest | 
+	comHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest := *openapiclient.NewComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest("OrderId_example", int32(123), openapiclient.com_hellopublic_userapigateway_api_rest_order_ApiMultilegOrderRequest_type("MARKET"), "LimitPrice_example", *openapiclient.NewComHellopublicUserapigatewayApiRestOrderOrderExpiration(openapiclient.com_hellopublic_userapigateway_api_rest_order_OrderExpiration_timeInForce("DAY")), []openapiclient.ComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg{*openapiclient.NewComHellopublicUserapigatewayApiRestOrderGatewayOrderLeg(*openapiclient.NewComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument("Symbol_example", openapiclient.com_hellopublic_userapigateway_api_rest_order_GatewayLegInstrument_type("EQUITY")), openapiclient.com_hellopublic_userapigateway_api_rest_order_GatewayOrderLeg_side("BUY"))}) // ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -241,7 +241,7 @@ import (
 
 func main() {
 	accountId := "accountId_example" // string | 
-	comHellopublicUserapigatewayApiRestOrderApiOrderRequest := *openapiclient.NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest("OrderId_example", *openapiclient.NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument("Symbol_example", "Type_example"), "OrderSide_example", "OrderType_example", *openapiclient.NewComHellopublicUserapigatewayApiRestOrderOrderExpiration("TimeInForce_example")) // ComHellopublicUserapigatewayApiRestOrderApiOrderRequest | 
+	comHellopublicUserapigatewayApiRestOrderApiOrderRequest := *openapiclient.NewComHellopublicUserapigatewayApiRestOrderApiOrderRequest("OrderId_example", *openapiclient.NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument("Symbol_example", openapiclient.getAllInstruments_typeFilter_parameter_inner("EQUITY")), openapiclient.com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderSide("BUY"), openapiclient.com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderType("MARKET"), *openapiclient.NewComHellopublicUserapigatewayApiRestOrderOrderExpiration(openapiclient.com_hellopublic_userapigateway_api_rest_order_OrderExpiration_timeInForce("DAY"))) // ComHellopublicUserapigatewayApiRestOrderApiOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

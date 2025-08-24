@@ -25,8 +25,7 @@ type ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount struct 
 	AccountName string `json:"accountName"`
 	// Id of the account
 	AccountId string `json:"accountId"`
-	// Type of the account
-	AccountType string `json:"accountType"`
+	AccountType ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType `json:"accountType"`
 	BuyingPower ComHellopublicUserapigatewayApiRestPortfolioGatewayBuyingPower `json:"buyingPower"`
 	// List of equity summaries
 	Equity []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity `json:"equity"`
@@ -41,7 +40,7 @@ type _ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount ComHel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount(accountName string, accountId string, accountType string, buyingPower ComHellopublicUserapigatewayApiRestPortfolioGatewayBuyingPower, equity []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity, positions []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioPosition, orders []ComHellopublicUserapigatewayApiRestOrderGatewayOrder) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount {
+func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount(accountName string, accountId string, accountType ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType, buyingPower ComHellopublicUserapigatewayApiRestPortfolioGatewayBuyingPower, equity []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity, positions []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioPosition, orders []ComHellopublicUserapigatewayApiRestOrderGatewayOrder) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount {
 	this := ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount{}
 	this.AccountName = accountName
 	this.AccountId = accountId
@@ -110,9 +109,9 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) Se
 }
 
 // GetAccountType returns the AccountType field value
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) GetAccountType() string {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) GetAccountType() ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType {
 	if o == nil {
-		var ret string
+		var ret ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType
 		return ret
 	}
 
@@ -121,7 +120,7 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) Ge
 
 // GetAccountTypeOk returns a tuple with the AccountType field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) GetAccountTypeOk() (*string, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) GetAccountTypeOk() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -129,7 +128,7 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) Ge
 }
 
 // SetAccountType sets field value
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) SetAccountType(v string) {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount) SetAccountType(v ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType) {
 	o.AccountType = v
 }
 
