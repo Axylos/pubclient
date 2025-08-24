@@ -11,10 +11,10 @@ package pubclient
 
 import (
 	"context"
+	openapiclient "github.com/axylos/pub_client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_pubclient_OrderControllerAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_pubclient_OrderControllerAPIService(t *testing.T) {
 
 	t.Run("Test OrderControllerAPIService CancelOrder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var accountId string
 		var orderId string
@@ -38,7 +38,7 @@ func Test_pubclient_OrderControllerAPIService(t *testing.T) {
 
 	t.Run("Test OrderControllerAPIService GetOrder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var accountId string
 		var orderId string
@@ -53,7 +53,7 @@ func Test_pubclient_OrderControllerAPIService(t *testing.T) {
 
 	t.Run("Test OrderControllerAPIService PlaceMultilegOrder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var accountId string
 
@@ -67,7 +67,7 @@ func Test_pubclient_OrderControllerAPIService(t *testing.T) {
 
 	t.Run("Test OrderControllerAPIService PlaceOrder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var accountId string
 
