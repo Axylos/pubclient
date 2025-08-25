@@ -492,7 +492,16 @@ paths:
         required: false
         schema:
           items:
-            $ref: "#/components/schemas/getAllInstruments_typeFilter_parameter_inner"
+            enum:
+            - EQUITY
+            - OPTION
+            - MULTI_LEG_INSTRUMENT
+            - CRYPTO
+            - ALT
+            - TREASURY
+            - BOND
+            - INDEX
+            type: string
           type: array
           uniqueItems: true
         style: form
@@ -503,7 +512,11 @@ paths:
         required: false
         schema:
           items:
-            $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+            enum:
+            - BUY_AND_SELL
+            - LIQUIDATION_ONLY
+            - DISABLED
+            type: string
           type: array
           uniqueItems: true
         style: form
@@ -514,7 +527,11 @@ paths:
         required: false
         schema:
           items:
-            $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+            enum:
+            - BUY_AND_SELL
+            - LIQUIDATION_ONLY
+            - DISABLED
+            type: string
           type: array
           uniqueItems: true
         style: form
@@ -525,7 +542,11 @@ paths:
         required: false
         schema:
           items:
-            $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+            enum:
+            - BUY_AND_SELL
+            - LIQUIDATION_ONLY
+            - DISABLED
+            type: string
           type: array
           uniqueItems: true
         style: form
@@ -537,7 +558,11 @@ paths:
         required: false
         schema:
           items:
-            $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+            enum:
+            - BUY_AND_SELL
+            - LIQUIDATION_ONLY
+            - DISABLED
+            type: string
           type: array
           uniqueItems: true
         style: form
@@ -568,7 +593,16 @@ paths:
         name: type
         required: true
         schema:
-          $ref: "#/components/schemas/getAllInstruments_typeFilter_parameter_inner"
+          enum:
+          - EQUITY
+          - OPTION
+          - MULTI_LEG_INSTRUMENT
+          - CRYPTO
+          - ALT
+          - TREASURY
+          - BOND
+          - INDEX
+          type: string
         style: simple
       responses:
         "200":
@@ -648,7 +682,16 @@ components:
         symbol:
           type: string
         type:
-          $ref: "#/components/schemas/getAllInstruments_typeFilter_parameter_inner"
+          enum:
+          - EQUITY
+          - OPTION
+          - MULTI_LEG_INSTRUMENT
+          - CRYPTO
+          - ALT
+          - TREASURY
+          - BOND
+          - INDEX
+          type: string
       required:
       - symbol
       - type
@@ -659,7 +702,11 @@ components:
         timeInForce: DAY
       properties:
         timeInForce:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_OrderExpiration_timeInForce"
+          description: The time in for the order
+          enum:
+          - DAY
+          - GTD
+          type: string
         expirationTime:
           description: "The expiration date. Only used when timeInForce is GTD, cannot\
             \ be more than 90 days in the future"
@@ -673,9 +720,19 @@ components:
         instrument:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.GatewayOrderInstrument"
         orderSide:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderSide"
+          description: The Order Side BUY/SELL. For Options also include the openCloseIndicator
+          enum:
+          - BUY
+          - SELL
+          type: string
         orderType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderType"
+          description: The Type of order
+          enum:
+          - MARKET
+          - LIMIT
+          - STOP
+          - STOP_LIMIT
+          type: string
         expiration:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.OrderExpiration"
         quantity:
@@ -695,7 +752,11 @@ components:
           description: The stop price. Used when orderType = STOP or orderType = STOP_LIMIT
           type: string
         openCloseIndicator:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_openCloseIndicator"
+          description: Used for options only. Indicates if this is BUY to OPEN/CLOSE
+          enum:
+          - OPEN
+          - CLOSE
+          type: string
       required:
       - expiration
       - instrument
@@ -732,7 +793,10 @@ components:
         baseSymbol:
           type: string
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_GatewayOptionDetails_type"
+          enum:
+          - CALL
+          - PUT
+          type: string
         strikePrice:
           type: string
         optionExpireDate:
@@ -920,7 +984,10 @@ components:
         symbol:
           type: string
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_GatewayLegInstrument_type"
+          enum:
+          - EQUITY
+          - OPTION
+          type: string
       required:
       - symbol
       - type
@@ -929,7 +996,7 @@ components:
       description: Option or equity leg. There can never be more than 1 equity leg.
       example:
         ratioQuantity: 0
-        side: null
+        side: BUY
         openCloseIndicator: OPEN
         instrument:
           symbol: symbol
@@ -938,9 +1005,17 @@ components:
         instrument:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.GatewayLegInstrument"
         side:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_GatewayOrderLeg_side"
+          enum:
+          - BUY
+          - SELL
+          type: string
         openCloseIndicator:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_GatewayOrderLeg_openCloseIndicator"
+          description: "required when instrument.type = OPTION, used to determine\
+            \ if the leg is buy-to-open or buy-to-close"
+          enum:
+          - OPEN
+          - CLOSE
+          type: string
         ratioQuantity:
           description: "The ratio between legs. Equity legs will typically be 100\
             \ shares, and option legs 1 contract"
@@ -964,7 +1039,12 @@ components:
         - **equityMarketSession** - The market session for equity legs
       properties:
         orderType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightMultiLegRequest_orderType"
+          enum:
+          - MARKET
+          - LIMIT
+          - STOP
+          - STOP_LIMIT
+          type: string
         expiration:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.OrderExpiration"
         quantity:
@@ -1018,9 +1098,15 @@ components:
         instrument:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.GatewayOrderInstrument"
         side:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_GatewayOrderLeg_side"
+          enum:
+          - BUY
+          - SELL
+          type: string
         openCloseIndicator:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightLegResponse_openCloseIndicator"
+          enum:
+          - OPEN
+          - CLOSE
+          type: string
         ratioQuantity:
           format: int32
           type: integer
@@ -1160,9 +1246,19 @@ components:
         instrument:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.GatewayOrderInstrument"
         orderSide:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderSide"
+          description: The Order Side BUY/SELL. For Options also include the openCloseIndicator
+          enum:
+          - BUY
+          - SELL
+          type: string
         orderType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderType"
+          description: The Type of order
+          enum:
+          - MARKET
+          - LIMIT
+          - STOP
+          - STOP_LIMIT
+          type: string
         expiration:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.OrderExpiration"
         quantity:
@@ -1182,7 +1278,11 @@ components:
           description: The stop price. Used when orderType = STOP or orderType = STOP_LIMIT
           type: string
         openCloseIndicator:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_openCloseIndicator"
+          description: Used for options only. Indicates if this is BUY to OPEN/CLOSE
+          enum:
+          - OPEN
+          - CLOSE
+          type: string
       required:
       - expiration
       - instrument
@@ -1213,7 +1313,13 @@ components:
           format: int32
           type: integer
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_ApiMultilegOrderRequest_type"
+          description: The order type. Only LIMIT order are allowed
+          enum:
+          - MARKET
+          - LIMIT
+          - STOP
+          - STOP_LIMIT
+          type: string
         limitPrice:
           description: "The limit price for the order. For debit spreads the limit\
             \ price must be positive, for create spreads the limit price is negative"
@@ -1260,7 +1366,11 @@ components:
         instrument:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.GatewayOrderInstrument"
         outcome:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_marketdata_quote_GatewayQuote_outcome"
+          description: The outcome status of the quote request.
+          enum:
+          - SUCCESS
+          - UNKNOWN
+          type: string
         last:
           description: The last traded price of the instrument. Can be null if no
             trades have occurred.
@@ -1445,11 +1555,30 @@ components:
         accountNumber:
           type: string
         accountType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_user_AccountKyc_accountType"
+          enum:
+          - BROKERAGE
+          - HIGH_YIELD
+          - BOND_ACCOUNT
+          - RIA_ASSET
+          - TREASURY
+          type: string
         objective:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_user_AccountKyc_objective"
+          enum:
+          - GROWTH_INCOME
+          - GROWTH
+          - INCOME
+          - CAPITAL_PRESERVATION
+          - SPECULATION
+          - MAXIMUM_GROWTH
+          - BALANCED
+          - OTHER
+          type: string
         riskTolerance:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_user_AccountKyc_riskTolerance"
+          enum:
+          - LOW
+          - MEDIUM
+          - HIGH
+          type: string
       required:
       - accountNumber
       - accountType
@@ -1570,13 +1699,13 @@ components:
         openCloseIndicator: OPEN
         legs:
         - ratioQuantity: 0
-          side: null
+          side: BUY
           openCloseIndicator: OPEN
           instrument:
             symbol: symbol
             type: EQUITY
         - ratioQuantity: 0
-          side: null
+          side: BUY
           openCloseIndicator: OPEN
           instrument:
             symbol: symbol
@@ -1598,11 +1727,30 @@ components:
           format: date-time
           type: string
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_preflight_PreflightMultiLegRequest_orderType"
+          enum:
+          - MARKET
+          - LIMIT
+          - STOP
+          - STOP_LIMIT
+          type: string
         side:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_GatewayOrderLeg_side"
+          enum:
+          - BUY
+          - SELL
+          type: string
         status:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_GatewayOrder_status"
+          enum:
+          - NEW
+          - PARTIALLY_FILLED
+          - CANCELLED
+          - QUEUED_CANCELLED
+          - FILLED
+          - REJECTED
+          - PENDING_REPLACE
+          - PENDING_CANCEL
+          - EXPIRED
+          - REPLACED
+          type: string
         quantity:
           description: "Quantity of the order, mutually exclusive with notional value"
           type: string
@@ -1624,7 +1772,11 @@ components:
           format: date-time
           type: string
         openCloseIndicator:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_order_GatewayOrder_openCloseIndicator"
+          description: Present if the order is a single-leg option order
+          enum:
+          - OPEN
+          - CLOSE
+          type: string
         filledQuantity:
           description: "The filled quantity of the order, present if the order had\
             \ at least one trade"
@@ -1781,13 +1933,13 @@ components:
           openCloseIndicator: OPEN
           legs:
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
               type: EQUITY
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
@@ -1813,13 +1965,13 @@ components:
           openCloseIndicator: OPEN
           legs:
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
               type: EQUITY
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
@@ -1845,7 +1997,14 @@ components:
           description: Id of the account
           type: string
         accountType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioAccount_accountType"
+          description: Type of the account
+          enum:
+          - BROKERAGE
+          - HIGH_YIELD
+          - BOND_ACCOUNT
+          - RIA_ASSET
+          - TREASURY
+          type: string
         buyingPower:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.portfolio.GatewayBuyingPower"
         equity:
@@ -1879,7 +2038,20 @@ components:
         percentageOfPortfolio: percentageOfPortfolio
       properties:
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioEquity_type"
+          description: Type of asset.
+          enum:
+          - STOCK
+          - OPTIONS_LONG
+          - OPTIONS_SHORT
+          - BONDS
+          - CRYPTO
+          - ALT
+          - TREASURY_ACCOUNT
+          - JIKO
+          - HIGH_YIELD_ACCOUNT
+          - BOND_ACCOUNT
+          - CASH
+          type: string
         value:
           description: Total value for the given asset type.
           type: string
@@ -1903,7 +2075,15 @@ components:
         name:
           type: string
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioInstrument_type"
+          enum:
+          - EQUITY
+          - OPTION
+          - CRYPTO
+          - ALT
+          - TREASURY
+          - BOND
+          - INDEX
+          type: string
       type: object
     com.hellopublic.userapigateway.api.rest.portfolio.GatewayPortfolioPosition:
       description: Position in portfolio
@@ -2049,13 +2229,13 @@ components:
           openCloseIndicator: OPEN
           legs:
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
               type: EQUITY
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
@@ -2081,13 +2261,13 @@ components:
           openCloseIndicator: OPEN
           legs:
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
               type: EQUITY
           - ratioQuantity: 0
-            side: null
+            side: BUY
             openCloseIndicator: OPEN
             instrument:
               symbol: symbol
@@ -2110,7 +2290,14 @@ components:
           description: Id of the account
           type: string
         accountType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioAccount_accountType"
+          description: Type of the account
+          enum:
+          - BROKERAGE
+          - HIGH_YIELD
+          - BOND_ACCOUNT
+          - RIA_ASSET
+          - TREASURY
+          type: string
         buyingPower:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.portfolio.GatewayBuyingPower"
         equity:
@@ -2143,7 +2330,15 @@ components:
         percentageOfPortfolio: percentageOfPortfolio
       properties:
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioEquityV2_type"
+          description: Type of asset.
+          enum:
+          - CASH
+          - STOCK
+          - OPTIONS_LONG
+          - OPTIONS_SHORT
+          - BONDS
+          - CRYPTO
+          type: string
         value:
           description: Total value for the given asset type.
           type: string
@@ -2240,9 +2435,28 @@ components:
           description: The id of the transaction
           type: string
         type:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_type"
+          description: The type of the transaction
+          enum:
+          - TRADE
+          - MONEY_MOVEMENT
+          - POSITION_ADJUSTMENT
+          type: string
         subType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_subType"
+          description: The subtype of the transaction
+          enum:
+          - DEPOSIT
+          - WITHDRAWAL
+          - DEPOSIT_RETURNED
+          - WITHDRAWAL_RETURNED
+          - DIVIDEND
+          - FEE
+          - REWARD
+          - TREASURY_BILL_TRANSFER
+          - INTEREST
+          - TRADE
+          - TRANSFER
+          - MISC
+          type: string
         accountNumber:
           description: The account the transaction happened on
           type: string
@@ -2250,9 +2464,21 @@ components:
           description: The symbol of the transaction
           type: string
         securityType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_securityType"
+          description: The security type of the transaction
+          enum:
+          - EQUITY
+          - OPTION
+          - CRYPTO
+          - ALT
+          - TREASURY
+          - BOND
+          type: string
         side:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_side"
+          description: The side of the transaction - relevant for trades
+          enum:
+          - BUY
+          - SELL
+          type: string
         description:
           description: The description of the transaction
           type: string
@@ -2266,7 +2492,11 @@ components:
           description: The quantity of the transaction
           type: string
         direction:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_direction"
+          description: The direction of the transaction
+          enum:
+          - INCOMING
+          - OUTGOING
+          type: string
         fees:
           description: The fees of the transaction
           type: string
@@ -2274,9 +2504,9 @@ components:
     com.hellopublic.userapigateway.api.rest.order.ApiInstrumentDto:
       example:
         trading: BUY_AND_SELL
-        fractionalTrading: null
-        optionTrading: null
-        optionSpreadTrading: null
+        fractionalTrading: BUY_AND_SELL
+        optionTrading: BUY_AND_SELL
+        optionSpreadTrading: BUY_AND_SELL
         instrument:
           symbol: symbol
           type: EQUITY
@@ -2284,13 +2514,29 @@ components:
         instrument:
           $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.order.GatewayOrderInstrument"
         trading:
-          $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+          enum:
+          - BUY_AND_SELL
+          - LIQUIDATION_ONLY
+          - DISABLED
+          type: string
         fractionalTrading:
-          $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+          enum:
+          - BUY_AND_SELL
+          - LIQUIDATION_ONLY
+          - DISABLED
+          type: string
         optionTrading:
-          $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+          enum:
+          - BUY_AND_SELL
+          - LIQUIDATION_ONLY
+          - DISABLED
+          type: string
         optionSpreadTrading:
-          $ref: "#/components/schemas/getAllInstruments_tradingFilter_parameter_inner"
+          enum:
+          - BUY_AND_SELL
+          - LIQUIDATION_ONLY
+          - DISABLED
+          type: string
       required:
       - fractionalTrading
       - instrument
@@ -2302,16 +2548,16 @@ components:
       example:
         instruments:
         - trading: BUY_AND_SELL
-          fractionalTrading: null
-          optionTrading: null
-          optionSpreadTrading: null
+          fractionalTrading: BUY_AND_SELL
+          optionTrading: BUY_AND_SELL
+          optionSpreadTrading: BUY_AND_SELL
           instrument:
             symbol: symbol
             type: EQUITY
         - trading: BUY_AND_SELL
-          fractionalTrading: null
-          optionTrading: null
-          optionSpreadTrading: null
+          fractionalTrading: BUY_AND_SELL
+          optionTrading: BUY_AND_SELL
+          optionSpreadTrading: BUY_AND_SELL
           instrument:
             symbol: symbol
             type: EQUITY
@@ -2332,13 +2578,33 @@ components:
         accountId:
           type: string
         accountType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_user_AccountKyc_accountType"
+          enum:
+          - BROKERAGE
+          - HIGH_YIELD
+          - BOND_ACCOUNT
+          - RIA_ASSET
+          - TREASURY
+          type: string
         optionsLevel:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_account_AccountSettings_optionsLevel"
+          enum:
+          - NONE
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_3
+          - LEVEL_4
+          type: string
         brokerageAccountType:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_account_AccountSettings_brokerageAccountType"
+          enum:
+          - CASH
+          - MARGIN
+          type: string
         tradePermissions:
-          $ref: "#/components/schemas/com_hellopublic_userapigateway_api_rest_account_AccountSettings_tradePermissions"
+          enum:
+          - BUY_AND_SELL
+          - RESTRICTED_SETTLED_FUNDS_ONLY
+          - RESTRICTED_CLOSE_ONLY
+          - RESTRICTED_NO_TRADING
+          type: string
       type: object
     com.hellopublic.userapigateway.api.rest.account.AccountSettingsResponse:
       example:
@@ -2453,13 +2719,13 @@ components:
             openCloseIndicator: OPEN
             legs:
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
                 type: EQUITY
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
@@ -2485,13 +2751,13 @@ components:
             openCloseIndicator: OPEN
             legs:
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
                 type: EQUITY
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
@@ -2583,13 +2849,13 @@ components:
             openCloseIndicator: OPEN
             legs:
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
                 type: EQUITY
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
@@ -2615,13 +2881,13 @@ components:
             openCloseIndicator: OPEN
             legs:
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
                 type: EQUITY
             - ratioQuantity: 0
-              side: null
+              side: BUY
               openCloseIndicator: OPEN
               instrument:
                 symbol: symbol
@@ -2646,247 +2912,3 @@ components:
             $ref: "#/components/schemas/com.hellopublic.userapigateway.api.rest.portfolio.GatewayPortfolioAccount"
           type: array
       type: object
-    getAllInstruments_typeFilter_parameter_inner:
-      enum:
-      - EQUITY
-      - OPTION
-      - MULTI_LEG_INSTRUMENT
-      - CRYPTO
-      - ALT
-      - TREASURY
-      - BOND
-      - INDEX
-      type: string
-    getAllInstruments_tradingFilter_parameter_inner:
-      enum:
-      - BUY_AND_SELL
-      - LIQUIDATION_ONLY
-      - DISABLED
-      type: string
-    com_hellopublic_userapigateway_api_rest_order_OrderExpiration_timeInForce:
-      description: The time in for the order
-      enum:
-      - DAY
-      - GTD
-      type: string
-    com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderSide:
-      description: The Order Side BUY/SELL. For Options also include the openCloseIndicator
-      enum:
-      - BUY
-      - SELL
-      type: string
-    com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_orderType:
-      description: The Type of order
-      enum:
-      - MARKET
-      - LIMIT
-      - STOP
-      - STOP_LIMIT
-      type: string
-    com_hellopublic_userapigateway_api_rest_preflight_PreflightSingleLegRequest_openCloseIndicator:
-      description: Used for options only. Indicates if this is BUY to OPEN/CLOSE
-      enum:
-      - OPEN
-      - CLOSE
-      type: string
-    com_hellopublic_userapigateway_api_rest_preflight_GatewayOptionDetails_type:
-      enum:
-      - CALL
-      - PUT
-      type: string
-    com_hellopublic_userapigateway_api_rest_order_GatewayLegInstrument_type:
-      enum:
-      - EQUITY
-      - OPTION
-      type: string
-    com_hellopublic_userapigateway_api_rest_order_GatewayOrderLeg_side:
-      enum:
-      - BUY
-      - SELL
-      type: string
-    com_hellopublic_userapigateway_api_rest_order_GatewayOrderLeg_openCloseIndicator:
-      description: "required when instrument.type = OPTION, used to determine if the\
-        \ leg is buy-to-open or buy-to-close"
-      enum:
-      - OPEN
-      - CLOSE
-      type: string
-    com_hellopublic_userapigateway_api_rest_preflight_PreflightMultiLegRequest_orderType:
-      enum:
-      - MARKET
-      - LIMIT
-      - STOP
-      - STOP_LIMIT
-      type: string
-    com_hellopublic_userapigateway_api_rest_preflight_PreflightLegResponse_openCloseIndicator:
-      enum:
-      - OPEN
-      - CLOSE
-      type: string
-    com_hellopublic_userapigateway_api_rest_order_ApiMultilegOrderRequest_type:
-      description: The order type. Only LIMIT order are allowed
-      enum:
-      - MARKET
-      - LIMIT
-      - STOP
-      - STOP_LIMIT
-      type: string
-    com_hellopublic_userapigateway_api_rest_marketdata_quote_GatewayQuote_outcome:
-      description: The outcome status of the quote request.
-      enum:
-      - SUCCESS
-      - UNKNOWN
-      type: string
-    com_hellopublic_userapigateway_api_rest_user_AccountKyc_accountType:
-      enum:
-      - BROKERAGE
-      - HIGH_YIELD
-      - BOND_ACCOUNT
-      - RIA_ASSET
-      - TREASURY
-      type: string
-    com_hellopublic_userapigateway_api_rest_user_AccountKyc_objective:
-      enum:
-      - GROWTH_INCOME
-      - GROWTH
-      - INCOME
-      - CAPITAL_PRESERVATION
-      - SPECULATION
-      - MAXIMUM_GROWTH
-      - BALANCED
-      - OTHER
-      type: string
-    com_hellopublic_userapigateway_api_rest_user_AccountKyc_riskTolerance:
-      enum:
-      - LOW
-      - MEDIUM
-      - HIGH
-      type: string
-    com_hellopublic_userapigateway_api_rest_order_GatewayOrder_status:
-      enum:
-      - NEW
-      - PARTIALLY_FILLED
-      - CANCELLED
-      - QUEUED_CANCELLED
-      - FILLED
-      - REJECTED
-      - PENDING_REPLACE
-      - PENDING_CANCEL
-      - EXPIRED
-      - REPLACED
-      type: string
-    com_hellopublic_userapigateway_api_rest_order_GatewayOrder_openCloseIndicator:
-      description: Present if the order is a single-leg option order
-      enum:
-      - OPEN
-      - CLOSE
-      type: string
-    com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioAccount_accountType:
-      description: Type of the account
-      enum:
-      - BROKERAGE
-      - HIGH_YIELD
-      - BOND_ACCOUNT
-      - RIA_ASSET
-      - TREASURY
-      type: string
-    com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioEquity_type:
-      description: Type of asset.
-      enum:
-      - STOCK
-      - OPTIONS_LONG
-      - OPTIONS_SHORT
-      - BONDS
-      - CRYPTO
-      - ALT
-      - TREASURY_ACCOUNT
-      - JIKO
-      - HIGH_YIELD_ACCOUNT
-      - BOND_ACCOUNT
-      - CASH
-      type: string
-    com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioInstrument_type:
-      enum:
-      - EQUITY
-      - OPTION
-      - CRYPTO
-      - ALT
-      - TREASURY
-      - BOND
-      - INDEX
-      type: string
-    com_hellopublic_userapigateway_api_rest_portfolio_GatewayPortfolioEquityV2_type:
-      description: Type of asset.
-      enum:
-      - CASH
-      - STOCK
-      - OPTIONS_LONG
-      - OPTIONS_SHORT
-      - BONDS
-      - CRYPTO
-      type: string
-    com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_type:
-      description: The type of the transaction
-      enum:
-      - TRADE
-      - MONEY_MOVEMENT
-      - POSITION_ADJUSTMENT
-      type: string
-    com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_subType:
-      description: The subtype of the transaction
-      enum:
-      - DEPOSIT
-      - WITHDRAWAL
-      - DEPOSIT_RETURNED
-      - WITHDRAWAL_RETURNED
-      - DIVIDEND
-      - FEE
-      - REWARD
-      - TREASURY_BILL_TRANSFER
-      - INTEREST
-      - TRADE
-      - TRANSFER
-      - MISC
-      type: string
-    com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_securityType:
-      description: The security type of the transaction
-      enum:
-      - EQUITY
-      - OPTION
-      - CRYPTO
-      - ALT
-      - TREASURY
-      - BOND
-      type: string
-    com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_side:
-      description: The side of the transaction - relevant for trades
-      enum:
-      - BUY
-      - SELL
-      type: string
-    com_hellopublic_userapigateway_api_rest_history_GatewayHistoryTransaction_direction:
-      description: The direction of the transaction
-      enum:
-      - INCOMING
-      - OUTGOING
-      type: string
-    com_hellopublic_userapigateway_api_rest_account_AccountSettings_optionsLevel:
-      enum:
-      - NONE
-      - LEVEL_1
-      - LEVEL_2
-      - LEVEL_3
-      - LEVEL_4
-      type: string
-    com_hellopublic_userapigateway_api_rest_account_AccountSettings_brokerageAccountType:
-      enum:
-      - CASH
-      - MARGIN
-      type: string
-    com_hellopublic_userapigateway_api_rest_account_AccountSettings_tradePermissions:
-      enum:
-      - BUY_AND_SELL
-      - RESTRICTED_SETTLED_FUNDS_ONLY
-      - RESTRICTED_CLOSE_ONLY
-      - RESTRICTED_NO_TRADING
-      type: string

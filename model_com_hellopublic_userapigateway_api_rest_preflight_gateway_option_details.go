@@ -22,7 +22,7 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestPreflightGatewayOptio
 // ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails struct for ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails
 type ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails struct {
 	BaseSymbol string `json:"baseSymbol"`
-	Type ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType `json:"type"`
+	Type string `json:"type"`
 	StrikePrice string `json:"strikePrice"`
 	OptionExpireDate string `json:"optionExpireDate"`
 }
@@ -33,7 +33,7 @@ type _ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails ComHellop
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails(baseSymbol string, type_ ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType, strikePrice string, optionExpireDate string) *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails {
+func NewComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails(baseSymbol string, type_ string, strikePrice string, optionExpireDate string) *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails {
 	this := ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails{}
 	this.BaseSymbol = baseSymbol
 	this.Type = type_
@@ -75,9 +75,9 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) SetBa
 }
 
 // GetType returns the Type field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetType() ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType {
+func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetType() string {
 	if o == nil {
-		var ret ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType
+		var ret string
 		return ret
 	}
 
@@ -86,7 +86,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetTy
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) GetTy
 }
 
 // SetType sets field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) SetType(v ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetailsType) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightGatewayOptionDetails) SetType(v string) {
 	o.Type = v
 }
 

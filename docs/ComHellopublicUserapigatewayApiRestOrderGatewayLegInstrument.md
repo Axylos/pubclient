@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Symbol** | **string** |  | 
-**Type** | [**ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrumentType**](ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrumentType.md) |  | 
+**Type** | **string** |  | 
 
 ## Methods
 
 ### NewComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument
 
-`func NewComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument(symbol string, type_ ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrumentType, ) *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument`
+`func NewComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument(symbol string, type_ string, ) *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument`
 
 NewComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument instantiates a new ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetSymbol sets Symbol field to given value.
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument) GetType() ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrumentType`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument) GetTypeOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrumentType, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument) SetType(v ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrumentType)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayLegInstrument) SetType(v string)`
 
 SetType sets Type field to given value.
 

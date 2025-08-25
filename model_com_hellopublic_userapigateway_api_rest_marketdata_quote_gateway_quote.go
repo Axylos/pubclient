@@ -23,7 +23,8 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewa
 // ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote struct for ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote
 type ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote struct {
 	Instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument `json:"instrument"`
-	Outcome ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome `json:"outcome"`
+	// The outcome status of the quote request.
+	Outcome string `json:"outcome"`
 	// The last traded price of the instrument. Can be null if no trades have occurred.
 	Last *string `json:"last,omitempty"`
 	// Timestamp of when the last trade occurred. Can be null if no trades have occurred.
@@ -48,7 +49,7 @@ type _ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote ComHellopub
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, outcome ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome) *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote {
+func NewComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, outcome string) *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote {
 	this := ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote{}
 	this.Instrument = instrument
 	this.Outcome = outcome
@@ -88,9 +89,9 @@ func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) SetInst
 }
 
 // GetOutcome returns the Outcome field value
-func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcome() ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome {
+func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcome() string {
 	if o == nil {
-		var ret ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome
+		var ret string
 		return ret
 	}
 
@@ -99,7 +100,7 @@ func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutc
 
 // GetOutcomeOk returns a tuple with the Outcome field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcomeOk() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome, bool) {
+func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutcomeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -107,7 +108,7 @@ func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) GetOutc
 }
 
 // SetOutcome sets field value
-func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) SetOutcome(v ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteOutcome) {
+func (o *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuote) SetOutcome(v string) {
 	o.Outcome = v
 }
 

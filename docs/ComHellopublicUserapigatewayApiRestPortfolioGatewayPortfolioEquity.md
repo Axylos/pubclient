@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityType**](ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityType.md) |  | 
+**Type** | **string** | Type of asset. | 
 **Value** | **string** | Total value for the given asset type. | 
 **PercentageOfPortfolio** | Pointer to **string** | The percentage of the portfolio this asset type constitutes.                                Percentage number is given with 2 decimals. | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity
 
-`func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity(type_ ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityType, value string, ) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity`
+`func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity(type_ string, value string, ) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity`
 
 NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity instantiates a new ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity) GetType() ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityType`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityType, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity) SetType(v ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityType)`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquity) SetType(v string)`
 
 SetType sets Type field to given value.
 

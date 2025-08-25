@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountNumber** | **string** |  | 
-**AccountType** | [**ComHellopublicUserapigatewayApiRestUserAccountKycAccountType**](ComHellopublicUserapigatewayApiRestUserAccountKycAccountType.md) |  | 
-**Objective** | Pointer to [**ComHellopublicUserapigatewayApiRestUserAccountKycObjective**](ComHellopublicUserapigatewayApiRestUserAccountKycObjective.md) |  | [optional] 
-**RiskTolerance** | Pointer to [**ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance**](ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance.md) |  | [optional] 
+**AccountType** | **string** |  | 
+**Objective** | Pointer to **string** |  | [optional] 
+**RiskTolerance** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewComHellopublicUserapigatewayApiRestUserAccountKyc
 
-`func NewComHellopublicUserapigatewayApiRestUserAccountKyc(accountNumber string, accountType ComHellopublicUserapigatewayApiRestUserAccountKycAccountType, ) *ComHellopublicUserapigatewayApiRestUserAccountKyc`
+`func NewComHellopublicUserapigatewayApiRestUserAccountKyc(accountNumber string, accountType string, ) *ComHellopublicUserapigatewayApiRestUserAccountKyc`
 
 NewComHellopublicUserapigatewayApiRestUserAccountKyc instantiates a new ComHellopublicUserapigatewayApiRestUserAccountKyc object
 This constructor will assign default values to properties that have it defined,
@@ -50,40 +50,40 @@ SetAccountNumber sets AccountNumber field to given value.
 
 ### GetAccountType
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountType() ComHellopublicUserapigatewayApiRestUserAccountKycAccountType`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountType() string`
 
 GetAccountType returns the AccountType field if non-nil, zero value otherwise.
 
 ### GetAccountTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountTypeOk() (*ComHellopublicUserapigatewayApiRestUserAccountKycAccountType, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetAccountTypeOk() (*string, bool)`
 
 GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountType
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetAccountType(v ComHellopublicUserapigatewayApiRestUserAccountKycAccountType)`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetAccountType(v string)`
 
 SetAccountType sets AccountType field to given value.
 
 
 ### GetObjective
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjective() ComHellopublicUserapigatewayApiRestUserAccountKycObjective`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjective() string`
 
 GetObjective returns the Objective field if non-nil, zero value otherwise.
 
 ### GetObjectiveOk
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjectiveOk() (*ComHellopublicUserapigatewayApiRestUserAccountKycObjective, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetObjectiveOk() (*string, bool)`
 
 GetObjectiveOk returns a tuple with the Objective field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjective
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetObjective(v ComHellopublicUserapigatewayApiRestUserAccountKycObjective)`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetObjective(v string)`
 
 SetObjective sets Objective field to given value.
 
@@ -95,20 +95,20 @@ HasObjective returns a boolean if a field has been set.
 
 ### GetRiskTolerance
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskTolerance() ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskTolerance() string`
 
 GetRiskTolerance returns the RiskTolerance field if non-nil, zero value otherwise.
 
 ### GetRiskToleranceOk
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskToleranceOk() (*ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) GetRiskToleranceOk() (*string, bool)`
 
 GetRiskToleranceOk returns a tuple with the RiskTolerance field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRiskTolerance
 
-`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetRiskTolerance(v ComHellopublicUserapigatewayApiRestUserAccountKycRiskTolerance)`
+`func (o *ComHellopublicUserapigatewayApiRestUserAccountKyc) SetRiskTolerance(v string)`
 
 SetRiskTolerance sets RiskTolerance field to given value.
 

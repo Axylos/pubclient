@@ -30,11 +30,11 @@ import (
 )
 
 func main() {
-	typeFilter := []openapiclient.GetAllInstrumentsTypeFilterParameterInner{openapiclient.getAllInstruments_typeFilter_parameter_inner("EQUITY")} // []GetAllInstrumentsTypeFilterParameterInner | optional set of security types to filter by ([GatewaySecurityType]) (optional)
-	tradingFilter := []openapiclient.GetAllInstrumentsTradingFilterParameterInner{openapiclient.getAllInstruments_tradingFilter_parameter_inner("BUY_AND_SELL")} // []GetAllInstrumentsTradingFilterParameterInner | optional set of trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
-	fractionalTradingFilter := []openapiclient.GetAllInstrumentsTradingFilterParameterInner{openapiclient.getAllInstruments_tradingFilter_parameter_inner("BUY_AND_SELL")} // []GetAllInstrumentsTradingFilterParameterInner | optional set of fractional trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
-	optionTradingFilter := []openapiclient.GetAllInstrumentsTradingFilterParameterInner{openapiclient.getAllInstruments_tradingFilter_parameter_inner("BUY_AND_SELL")} // []GetAllInstrumentsTradingFilterParameterInner | optional set of option trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
-	optionSpreadTradingFilter := []openapiclient.GetAllInstrumentsTradingFilterParameterInner{openapiclient.getAllInstruments_tradingFilter_parameter_inner("BUY_AND_SELL")} // []GetAllInstrumentsTradingFilterParameterInner | optional set of option spread trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
+	typeFilter := []string{"TypeFilter_example"} // []string | optional set of security types to filter by ([GatewaySecurityType]) (optional)
+	tradingFilter := []string{"TradingFilter_example"} // []string | optional set of trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
+	fractionalTradingFilter := []string{"FractionalTradingFilter_example"} // []string | optional set of fractional trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
+	optionTradingFilter := []string{"OptionTradingFilter_example"} // []string | optional set of option trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
+	optionSpreadTradingFilter := []string{"OptionSpreadTradingFilter_example"} // []string | optional set of option spread trading statuses to filter by ([ApiInstrumentDto.Trading]) (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -59,11 +59,11 @@ Other parameters are passed through a pointer to a apiGetAllInstrumentsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **typeFilter** | [**[]GetAllInstrumentsTypeFilterParameterInner**](GetAllInstrumentsTypeFilterParameterInner.md) | optional set of security types to filter by ([GatewaySecurityType]) | 
- **tradingFilter** | [**[]GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) | optional set of trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
- **fractionalTradingFilter** | [**[]GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) | optional set of fractional trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
- **optionTradingFilter** | [**[]GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) | optional set of option trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
- **optionSpreadTradingFilter** | [**[]GetAllInstrumentsTradingFilterParameterInner**](GetAllInstrumentsTradingFilterParameterInner.md) | optional set of option spread trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
+ **typeFilter** | **[]string** | optional set of security types to filter by ([GatewaySecurityType]) | 
+ **tradingFilter** | **[]string** | optional set of trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
+ **fractionalTradingFilter** | **[]string** | optional set of fractional trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
+ **optionTradingFilter** | **[]string** | optional set of option trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
+ **optionSpreadTradingFilter** | **[]string** | optional set of option spread trading statuses to filter by ([ApiInstrumentDto.Trading]) | 
 
 ### Return type
 
@@ -103,7 +103,7 @@ import (
 
 func main() {
 	symbol := "symbol_example" // string | 
-	type_ := openapiclient.getAllInstruments_typeFilter_parameter_inner("EQUITY") // GetAllInstrumentsTypeFilterParameterInner | 
+	type_ := "type__example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **symbol** | **string** |  | 
-**type_** | [**GetAllInstrumentsTypeFilterParameterInner**](.md) |  | 
+**type_** | **string** |  | 
 
 ### Other Parameters
 

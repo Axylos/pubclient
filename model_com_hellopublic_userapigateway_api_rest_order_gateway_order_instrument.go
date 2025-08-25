@@ -22,7 +22,7 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestOrderGatewayOrderInst
 // ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument struct for ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument
 type ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument struct {
 	Symbol string `json:"symbol"`
-	Type GetAllInstrumentsTypeFilterParameterInner `json:"type"`
+	Type string `json:"type"`
 }
 
 type _ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument
@@ -31,7 +31,7 @@ type _ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument ComHellopub
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument(symbol string, type_ GetAllInstrumentsTypeFilterParameterInner) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument {
+func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument(symbol string, type_ string) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument {
 	this := ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument{}
 	this.Symbol = symbol
 	this.Type = type_
@@ -71,9 +71,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) SetSymb
 }
 
 // GetType returns the Type field value
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetType() GetAllInstrumentsTypeFilterParameterInner {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetType() string {
 	if o == nil {
-		var ret GetAllInstrumentsTypeFilterParameterInner
+		var ret string
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetType
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetTypeOk() (*GetAllInstrumentsTypeFilterParameterInner, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetType
 }
 
 // SetType sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) SetType(v GetAllInstrumentsTypeFilterParameterInner) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) SetType(v string) {
 	o.Type = v
 }
 

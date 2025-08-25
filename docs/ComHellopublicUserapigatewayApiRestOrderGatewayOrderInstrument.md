@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Symbol** | **string** |  | 
-**Type** | [**GetAllInstrumentsTypeFilterParameterInner**](GetAllInstrumentsTypeFilterParameterInner.md) |  | 
+**Type** | **string** |  | 
 
 ## Methods
 
 ### NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument
 
-`func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument(symbol string, type_ GetAllInstrumentsTypeFilterParameterInner, ) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument`
+`func NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument(symbol string, type_ string, ) *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument`
 
 NewComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument instantiates a new ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetSymbol sets Symbol field to given value.
 
 ### GetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetType() GetAllInstrumentsTypeFilterParameterInner`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetTypeOk() (*GetAllInstrumentsTypeFilterParameterInner, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) SetType(v GetAllInstrumentsTypeFilterParameterInner)`
+`func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument) SetType(v string)`
 
 SetType sets Type field to given value.
 

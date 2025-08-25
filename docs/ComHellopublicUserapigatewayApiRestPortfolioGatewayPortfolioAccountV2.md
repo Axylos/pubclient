@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **string** | Id of the account | 
-**AccountType** | [**ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType**](ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType.md) |  | 
+**AccountType** | **string** | Type of the account | 
 **BuyingPower** | [**ComHellopublicUserapigatewayApiRestPortfolioGatewayBuyingPower**](ComHellopublicUserapigatewayApiRestPortfolioGatewayBuyingPower.md) |  | 
 **Equity** | [**[]ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2**](ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2.md) | List of equity summaries | 
 **Positions** | [**[]ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioPosition**](ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioPosition.md) | List of positions | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2
 
-`func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2(accountId string, accountType ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType, buyingPower ComHellopublicUserapigatewayApiRestPortfolioGatewayBuyingPower, equity []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2, positions []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioPosition, orders []ComHellopublicUserapigatewayApiRestOrderGatewayOrder, ) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2`
+`func NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2(accountId string, accountType string, buyingPower ComHellopublicUserapigatewayApiRestPortfolioGatewayBuyingPower, equity []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioEquityV2, positions []ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioPosition, orders []ComHellopublicUserapigatewayApiRestOrderGatewayOrder, ) *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2`
 
 NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2 instantiates a new ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2 object
 This constructor will assign default values to properties that have it defined,
@@ -52,20 +52,20 @@ SetAccountId sets AccountId field to given value.
 
 ### GetAccountType
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2) GetAccountType() ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2) GetAccountType() string`
 
 GetAccountType returns the AccountType field if non-nil, zero value otherwise.
 
 ### GetAccountTypeOk
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2) GetAccountTypeOk() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType, bool)`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2) GetAccountTypeOk() (*string, bool)`
 
 GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountType
 
-`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2) SetAccountType(v ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountAccountType)`
+`func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2) SetAccountType(v string)`
 
 SetAccountType sets AccountType field to given value.
 

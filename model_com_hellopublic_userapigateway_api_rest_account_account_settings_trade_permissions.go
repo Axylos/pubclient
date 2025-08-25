@@ -20,10 +20,10 @@ type ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions s
 
 // List of com_hellopublic_userapigateway_api_rest_account_AccountSettings_tradePermissions
 const (
-	// BUY_AND_SELL ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions = "BUY_AND_SELL"
+	BUY_AND_SELL ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions = "BUY_AND_SELL"
 	RESTRICTED_SETTLED_FUNDS_ONLY ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions = "RESTRICTED_SETTLED_FUNDS_ONLY"
-	RESTRICTED_CLOSE_ONLY         ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions = "RESTRICTED_CLOSE_ONLY"
-	RESTRICTED_NO_TRADING         ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions = "RESTRICTED_NO_TRADING"
+	RESTRICTED_CLOSE_ONLY ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions = "RESTRICTED_CLOSE_ONLY"
+	RESTRICTED_NO_TRADING ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions = "RESTRICTED_NO_TRADING"
 )
 
 // All allowed values of ComHellopublicUserapigatewayApiRestAccountAccountSettingsTradePermissions enum
@@ -112,3 +112,4 @@ func (v *NullableComHellopublicUserapigatewayApiRestAccountAccountSettingsTradeP
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

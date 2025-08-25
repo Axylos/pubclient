@@ -24,9 +24,9 @@ type ComHellopublicUserapigatewayApiRestOrderGatewayOrder struct {
 	Instrument *ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument `json:"instrument,omitempty"`
 	// Creation time of the order
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	Type *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType `json:"type,omitempty"`
-	Side *ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide `json:"side,omitempty"`
-	Status *ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus `json:"status,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Side *string `json:"side,omitempty"`
+	Status *string `json:"status,omitempty"`
 	// Quantity of the order, mutually exclusive with notional value
 	Quantity *string `json:"quantity,omitempty"`
 	// Notional value (dollar amount) of the order, mutually exclusive with quantity
@@ -38,7 +38,8 @@ type ComHellopublicUserapigatewayApiRestOrderGatewayOrder struct {
 	StopPrice *string `json:"stopPrice,omitempty"`
 	// The time the order reached a terminal state, like CANCELLED, FILLED, REJECTED, REPLACED
 	ClosedAt *time.Time `json:"closedAt,omitempty"`
-	OpenCloseIndicator *ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator `json:"openCloseIndicator,omitempty"`
+	// Present if the order is a single-leg option order
+	OpenCloseIndicator *string `json:"openCloseIndicator,omitempty"`
 	// The filled quantity of the order, present if the order had at least one trade
 	FilledQuantity *string `json:"filledQuantity,omitempty"`
 	// The average price per unit, present if the order had at least one trade
@@ -161,9 +162,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetCreatedAt(v ti
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetType() ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetType() string {
 	if o == nil || IsNil(o.Type) {
-		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType
+		var ret string
 		return ret
 	}
 	return *o.Type
@@ -171,7 +172,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetType() ComHell
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -187,15 +188,15 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType and assigns it to the Type field.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetType(v ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequestOrderType) {
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetType(v string) {
 	o.Type = &v
 }
 
 // GetSide returns the Side field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSide() ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSide() string {
 	if o == nil || IsNil(o.Side) {
-		var ret ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide
+		var ret string
 		return ret
 	}
 	return *o.Side
@@ -203,7 +204,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSide() ComHell
 
 // GetSideOk returns a tuple with the Side field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSideOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetSideOk() (*string, bool) {
 	if o == nil || IsNil(o.Side) {
 		return nil, false
 	}
@@ -219,15 +220,15 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) HasSide() bool {
 	return false
 }
 
-// SetSide gets a reference to the given ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide and assigns it to the Side field.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetSide(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderLegSide) {
+// SetSide gets a reference to the given string and assigns it to the Side field.
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetSide(v string) {
 	o.Side = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatus() ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
-		var ret ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus
+		var ret string
 		return ret
 	}
 	return *o.Status
@@ -235,7 +236,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatus() ComHe
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatusOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetStatusOk() (*string, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -251,8 +252,8 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) HasStatus() bool 
 	return false
 }
 
-// SetStatus gets a reference to the given ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus and assigns it to the Status field.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetStatus(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderStatus) {
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetStatus(v string) {
 	o.Status = &v
 }
 
@@ -449,9 +450,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetClosedAt(v tim
 }
 
 // GetOpenCloseIndicator returns the OpenCloseIndicator field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicator() string {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
-		var ret ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator
+		var ret string
 		return ret
 	}
 	return *o.OpenCloseIndicator
@@ -459,7 +460,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndic
 
 // GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) GetOpenCloseIndicatorOk() (*string, bool) {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
 		return nil, false
 	}
@@ -475,8 +476,8 @@ func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) HasOpenCloseIndic
 	return false
 }
 
-// SetOpenCloseIndicator gets a reference to the given ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator and assigns it to the OpenCloseIndicator field.
-func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestOrderGatewayOrderOpenCloseIndicator) {
+// SetOpenCloseIndicator gets a reference to the given string and assigns it to the OpenCloseIndicator field.
+func (o *ComHellopublicUserapigatewayApiRestOrderGatewayOrder) SetOpenCloseIndicator(v string) {
 	o.OpenCloseIndicator = &v
 }
 

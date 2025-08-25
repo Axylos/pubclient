@@ -24,14 +24,18 @@ type ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction struct 
 	Timestamp *time.Time `json:"timestamp,omitempty"`
 	// The id of the transaction
 	Id *string `json:"id,omitempty"`
-	Type *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType `json:"type,omitempty"`
-	SubType *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType `json:"subType,omitempty"`
+	// The type of the transaction
+	Type *string `json:"type,omitempty"`
+	// The subtype of the transaction
+	SubType *string `json:"subType,omitempty"`
 	// The account the transaction happened on
 	AccountNumber *string `json:"accountNumber,omitempty"`
 	// The symbol of the transaction
 	Symbol *string `json:"symbol,omitempty"`
-	SecurityType *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType `json:"securityType,omitempty"`
-	Side *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide `json:"side,omitempty"`
+	// The security type of the transaction
+	SecurityType *string `json:"securityType,omitempty"`
+	// The side of the transaction - relevant for trades
+	Side *string `json:"side,omitempty"`
 	// The description of the transaction
 	Description *string `json:"description,omitempty"`
 	// The net amount of the transaction
@@ -40,7 +44,8 @@ type ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction struct 
 	PrincipalAmount *string `json:"principalAmount,omitempty"`
 	// The quantity of the transaction
 	Quantity *string `json:"quantity,omitempty"`
-	Direction *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection `json:"direction,omitempty"`
+	// The direction of the transaction
+	Direction *string `json:"direction,omitempty"`
 	// The fees of the transaction
 	Fees *string `json:"fees,omitempty"`
 }
@@ -127,9 +132,9 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Se
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetType() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetType() string {
 	if o == nil || IsNil(o.Type) {
-		var ret ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType
+		var ret string
 		return ret
 	}
 	return *o.Type
@@ -137,7 +142,7 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ge
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetTypeOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType, bool) {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -153,15 +158,15 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ha
 	return false
 }
 
-// SetType gets a reference to the given ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType and assigns it to the Type field.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetType(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionType) {
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetType(v string) {
 	o.Type = &v
 }
 
 // GetSubType returns the SubType field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubType() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubType() string {
 	if o == nil || IsNil(o.SubType) {
-		var ret ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType
+		var ret string
 		return ret
 	}
 	return *o.SubType
@@ -169,7 +174,7 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ge
 
 // GetSubTypeOk returns a tuple with the SubType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubTypeOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType, bool) {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSubTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.SubType) {
 		return nil, false
 	}
@@ -185,8 +190,8 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ha
 	return false
 }
 
-// SetSubType gets a reference to the given ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType and assigns it to the SubType field.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSubType(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSubType) {
+// SetSubType gets a reference to the given string and assigns it to the SubType field.
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSubType(v string) {
 	o.SubType = &v
 }
 
@@ -255,9 +260,9 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Se
 }
 
 // GetSecurityType returns the SecurityType field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityType() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityType() string {
 	if o == nil || IsNil(o.SecurityType) {
-		var ret ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType
+		var ret string
 		return ret
 	}
 	return *o.SecurityType
@@ -265,7 +270,7 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ge
 
 // GetSecurityTypeOk returns a tuple with the SecurityType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityTypeOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType, bool) {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSecurityTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.SecurityType) {
 		return nil, false
 	}
@@ -281,15 +286,15 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ha
 	return false
 }
 
-// SetSecurityType gets a reference to the given ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType and assigns it to the SecurityType field.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSecurityType(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSecurityType) {
+// SetSecurityType gets a reference to the given string and assigns it to the SecurityType field.
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSecurityType(v string) {
 	o.SecurityType = &v
 }
 
 // GetSide returns the Side field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSide() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSide() string {
 	if o == nil || IsNil(o.Side) {
-		var ret ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide
+		var ret string
 		return ret
 	}
 	return *o.Side
@@ -297,7 +302,7 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ge
 
 // GetSideOk returns a tuple with the Side field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSideOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide, bool) {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetSideOk() (*string, bool) {
 	if o == nil || IsNil(o.Side) {
 		return nil, false
 	}
@@ -313,8 +318,8 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ha
 	return false
 }
 
-// SetSide gets a reference to the given ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide and assigns it to the Side field.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSide(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionSide) {
+// SetSide gets a reference to the given string and assigns it to the Side field.
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetSide(v string) {
 	o.Side = &v
 }
 
@@ -447,9 +452,9 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Se
 }
 
 // GetDirection returns the Direction field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirection() ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirection() string {
 	if o == nil || IsNil(o.Direction) {
-		var ret ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection
+		var ret string
 		return ret
 	}
 	return *o.Direction
@@ -457,7 +462,7 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ge
 
 // GetDirectionOk returns a tuple with the Direction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirectionOk() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection, bool) {
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) GetDirectionOk() (*string, bool) {
 	if o == nil || IsNil(o.Direction) {
 		return nil, false
 	}
@@ -473,8 +478,8 @@ func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) Ha
 	return false
 }
 
-// SetDirection gets a reference to the given ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection and assigns it to the Direction field.
-func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetDirection(v ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransactionDirection) {
+// SetDirection gets a reference to the given string and assigns it to the Direction field.
+func (o *ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryTransaction) SetDirection(v string) {
 	o.Direction = &v
 }
 

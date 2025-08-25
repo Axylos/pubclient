@@ -22,10 +22,10 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto
 // ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto struct for ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto
 type ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto struct {
 	Instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument `json:"instrument"`
-	Trading GetAllInstrumentsTradingFilterParameterInner `json:"trading"`
-	FractionalTrading GetAllInstrumentsTradingFilterParameterInner `json:"fractionalTrading"`
-	OptionTrading GetAllInstrumentsTradingFilterParameterInner `json:"optionTrading"`
-	OptionSpreadTrading GetAllInstrumentsTradingFilterParameterInner `json:"optionSpreadTrading"`
+	Trading string `json:"trading"`
+	FractionalTrading string `json:"fractionalTrading"`
+	OptionTrading string `json:"optionTrading"`
+	OptionSpreadTrading string `json:"optionSpreadTrading"`
 }
 
 type _ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto
@@ -34,7 +34,7 @@ type _ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto ComHellopublicUse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestOrderApiInstrumentDto(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, trading GetAllInstrumentsTradingFilterParameterInner, fractionalTrading GetAllInstrumentsTradingFilterParameterInner, optionTrading GetAllInstrumentsTradingFilterParameterInner, optionSpreadTrading GetAllInstrumentsTradingFilterParameterInner) *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto {
+func NewComHellopublicUserapigatewayApiRestOrderApiInstrumentDto(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, trading string, fractionalTrading string, optionTrading string, optionSpreadTrading string) *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto {
 	this := ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto{}
 	this.Instrument = instrument
 	this.Trading = trading
@@ -77,9 +77,9 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetInstrument
 }
 
 // GetTrading returns the Trading field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTrading() GetAllInstrumentsTradingFilterParameterInner {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTrading() string {
 	if o == nil {
-		var ret GetAllInstrumentsTradingFilterParameterInner
+		var ret string
 		return ret
 	}
 
@@ -88,7 +88,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTrading() 
 
 // GetTradingOk returns a tuple with the Trading field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTradingOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,14 +96,14 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetTradingOk(
 }
 
 // SetTrading sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetTrading(v GetAllInstrumentsTradingFilterParameterInner) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetTrading(v string) {
 	o.Trading = v
 }
 
 // GetFractionalTrading returns the FractionalTrading field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTrading() GetAllInstrumentsTradingFilterParameterInner {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTrading() string {
 	if o == nil {
-		var ret GetAllInstrumentsTradingFilterParameterInner
+		var ret string
 		return ret
 	}
 
@@ -112,7 +112,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractional
 
 // GetFractionalTradingOk returns a tuple with the FractionalTrading field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractionalTradingOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -120,14 +120,14 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetFractional
 }
 
 // SetFractionalTrading sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetFractionalTrading(v GetAllInstrumentsTradingFilterParameterInner) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetFractionalTrading(v string) {
 	o.FractionalTrading = v
 }
 
 // GetOptionTrading returns the OptionTrading field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTrading() GetAllInstrumentsTradingFilterParameterInner {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTrading() string {
 	if o == nil {
-		var ret GetAllInstrumentsTradingFilterParameterInner
+		var ret string
 		return ret
 	}
 
@@ -136,7 +136,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTrad
 
 // GetOptionTradingOk returns a tuple with the OptionTrading field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTradingOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -144,14 +144,14 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionTrad
 }
 
 // SetOptionTrading sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionTrading(v GetAllInstrumentsTradingFilterParameterInner) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionTrading(v string) {
 	o.OptionTrading = v
 }
 
 // GetOptionSpreadTrading returns the OptionSpreadTrading field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTrading() GetAllInstrumentsTradingFilterParameterInner {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTrading() string {
 	if o == nil {
-		var ret GetAllInstrumentsTradingFilterParameterInner
+		var ret string
 		return ret
 	}
 
@@ -160,7 +160,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpre
 
 // GetOptionSpreadTradingOk returns a tuple with the OptionSpreadTrading field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTradingOk() (*GetAllInstrumentsTradingFilterParameterInner, bool) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpreadTradingOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -168,7 +168,7 @@ func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) GetOptionSpre
 }
 
 // SetOptionSpreadTrading sets field value
-func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionSpreadTrading(v GetAllInstrumentsTradingFilterParameterInner) {
+func (o *ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto) SetOptionSpreadTrading(v string) {
 	o.OptionSpreadTrading = v
 }
 

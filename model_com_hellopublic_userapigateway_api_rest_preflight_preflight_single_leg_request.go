@@ -22,8 +22,10 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestPreflightPreflightSin
 // ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest struct for ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest
 type ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest struct {
 	Instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument `json:"instrument"`
-	OrderSide ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide `json:"orderSide"`
-	OrderType ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType `json:"orderType"`
+	// The Order Side BUY/SELL. For Options also include the openCloseIndicator
+	OrderSide string `json:"orderSide"`
+	// The Type of order
+	OrderType string `json:"orderType"`
 	Expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration `json:"expiration"`
 	// The order quantity. Used when buying/selling whole shares and when selling fractional. Mutually exclusive with `amount`
 	Quantity *string `json:"quantity,omitempty"`
@@ -33,7 +35,8 @@ type ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest struc
 	LimitPrice *string `json:"limitPrice,omitempty"`
 	// The stop price. Used when orderType = STOP or orderType = STOP_LIMIT
 	StopPrice *string `json:"stopPrice,omitempty"`
-	OpenCloseIndicator *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator `json:"openCloseIndicator,omitempty"`
+	// Used for options only. Indicates if this is BUY to OPEN/CLOSE
+	OpenCloseIndicator *string `json:"openCloseIndicator,omitempty"`
 }
 
 type _ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest
@@ -42,7 +45,7 @@ type _ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest ComH
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, orderSide ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide, orderType ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration) *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest {
+func NewComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest(instrument ComHellopublicUserapigatewayApiRestOrderGatewayOrderInstrument, orderSide string, orderType string, expiration ComHellopublicUserapigatewayApiRestOrderOrderExpiration) *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest {
 	this := ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest{}
 	this.Instrument = instrument
 	this.OrderSide = orderSide
@@ -84,9 +87,9 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 }
 
 // GetOrderSide returns the OrderSide field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderSide() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderSide() string {
 	if o == nil {
-		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide
+		var ret string
 		return ret
 	}
 
@@ -95,7 +98,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 
 // GetOrderSideOk returns a tuple with the OrderSide field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderSideOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderSideOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -103,14 +106,14 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 }
 
 // SetOrderSide sets field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) SetOrderSide(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderSide) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) SetOrderSide(v string) {
 	o.OrderSide = v
 }
 
 // GetOrderType returns the OrderType field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderType() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderType() string {
 	if o == nil {
-		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType
+		var ret string
 		return ret
 	}
 
@@ -119,7 +122,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 
 // GetOrderTypeOk returns a tuple with the OrderType field value
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderTypeOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOrderTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -127,7 +130,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 }
 
 // SetOrderType sets field value
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) SetOrderType(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOrderType) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) SetOrderType(v string) {
 	o.OrderType = v
 }
 
@@ -284,9 +287,9 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 }
 
 // GetOpenCloseIndicator returns the OpenCloseIndicator field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOpenCloseIndicator() ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOpenCloseIndicator() string {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
-		var ret ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator
+		var ret string
 		return ret
 	}
 	return *o.OpenCloseIndicator
@@ -294,7 +297,7 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 
 // GetOpenCloseIndicatorOk returns a tuple with the OpenCloseIndicator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOpenCloseIndicatorOk() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) GetOpenCloseIndicatorOk() (*string, bool) {
 	if o == nil || IsNil(o.OpenCloseIndicator) {
 		return nil, false
 	}
@@ -310,8 +313,8 @@ func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) 
 	return false
 }
 
-// SetOpenCloseIndicator gets a reference to the given ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator and assigns it to the OpenCloseIndicator field.
-func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) SetOpenCloseIndicator(v ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequestOpenCloseIndicator) {
+// SetOpenCloseIndicator gets a reference to the given string and assigns it to the OpenCloseIndicator field.
+func (o *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) SetOpenCloseIndicator(v string) {
 	o.OpenCloseIndicator = &v
 }
 

@@ -27,39 +27,39 @@ type InstrumentControllerAPIService service
 type ApiGetAllInstrumentsRequest struct {
 	ctx context.Context
 	ApiService *InstrumentControllerAPIService
-	typeFilter *[]GetAllInstrumentsTypeFilterParameterInner
-	tradingFilter *[]GetAllInstrumentsTradingFilterParameterInner
-	fractionalTradingFilter *[]GetAllInstrumentsTradingFilterParameterInner
-	optionTradingFilter *[]GetAllInstrumentsTradingFilterParameterInner
-	optionSpreadTradingFilter *[]GetAllInstrumentsTradingFilterParameterInner
+	typeFilter *[]string
+	tradingFilter *[]string
+	fractionalTradingFilter *[]string
+	optionTradingFilter *[]string
+	optionSpreadTradingFilter *[]string
 }
 
 // optional set of security types to filter by ([GatewaySecurityType])
-func (r ApiGetAllInstrumentsRequest) TypeFilter(typeFilter []GetAllInstrumentsTypeFilterParameterInner) ApiGetAllInstrumentsRequest {
+func (r ApiGetAllInstrumentsRequest) TypeFilter(typeFilter []string) ApiGetAllInstrumentsRequest {
 	r.typeFilter = &typeFilter
 	return r
 }
 
 // optional set of trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) TradingFilter(tradingFilter []GetAllInstrumentsTradingFilterParameterInner) ApiGetAllInstrumentsRequest {
+func (r ApiGetAllInstrumentsRequest) TradingFilter(tradingFilter []string) ApiGetAllInstrumentsRequest {
 	r.tradingFilter = &tradingFilter
 	return r
 }
 
 // optional set of fractional trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) FractionalTradingFilter(fractionalTradingFilter []GetAllInstrumentsTradingFilterParameterInner) ApiGetAllInstrumentsRequest {
+func (r ApiGetAllInstrumentsRequest) FractionalTradingFilter(fractionalTradingFilter []string) ApiGetAllInstrumentsRequest {
 	r.fractionalTradingFilter = &fractionalTradingFilter
 	return r
 }
 
 // optional set of option trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) OptionTradingFilter(optionTradingFilter []GetAllInstrumentsTradingFilterParameterInner) ApiGetAllInstrumentsRequest {
+func (r ApiGetAllInstrumentsRequest) OptionTradingFilter(optionTradingFilter []string) ApiGetAllInstrumentsRequest {
 	r.optionTradingFilter = &optionTradingFilter
 	return r
 }
 
 // optional set of option spread trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) OptionSpreadTradingFilter(optionSpreadTradingFilter []GetAllInstrumentsTradingFilterParameterInner) ApiGetAllInstrumentsRequest {
+func (r ApiGetAllInstrumentsRequest) OptionSpreadTradingFilter(optionSpreadTradingFilter []string) ApiGetAllInstrumentsRequest {
 	r.optionSpreadTradingFilter = &optionSpreadTradingFilter
 	return r
 }
@@ -221,7 +221,7 @@ type ApiGetInstrumentRequest struct {
 	ctx context.Context
 	ApiService *InstrumentControllerAPIService
 	symbol string
-	type_ GetAllInstrumentsTypeFilterParameterInner
+	type_ string
 }
 
 func (r ApiGetInstrumentRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto, *http.Response, error) {
@@ -236,7 +236,7 @@ GetInstrument Method for GetInstrument
  @param type_
  @return ApiGetInstrumentRequest
 */
-func (a *InstrumentControllerAPIService) GetInstrument(ctx context.Context, symbol string, type_ GetAllInstrumentsTypeFilterParameterInner) ApiGetInstrumentRequest {
+func (a *InstrumentControllerAPIService) GetInstrument(ctx context.Context, symbol string, type_ string) ApiGetInstrumentRequest {
 	return ApiGetInstrumentRequest{
 		ApiService: a,
 		ctx: ctx,

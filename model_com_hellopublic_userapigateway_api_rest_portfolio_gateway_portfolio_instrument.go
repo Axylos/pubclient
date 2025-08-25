@@ -21,7 +21,7 @@ var _ MappedNullable = &ComHellopublicUserapigatewayApiRestPortfolioGatewayPortf
 type ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument struct {
 	Symbol *string `json:"symbol,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Type *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType `json:"type,omitempty"`
+	Type *string `json:"type,omitempty"`
 }
 
 // NewComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument instantiates a new ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument object
@@ -106,9 +106,9 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument)
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetType() ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetType() string {
 	if o == nil || IsNil(o.Type) {
-		var ret ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType
+		var ret string
 		return ret
 	}
 	return *o.Type
@@ -116,7 +116,7 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument)
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetTypeOk() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType, bool) {
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) GetTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -132,8 +132,8 @@ func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument)
 	return false
 }
 
-// SetType gets a reference to the given ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType and assigns it to the Type field.
-func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) SetType(v ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrumentType) {
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioInstrument) SetType(v string) {
 	o.Type = &v
 }
 
