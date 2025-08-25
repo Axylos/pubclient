@@ -19,15 +19,51 @@ import (
 )
 
 
+type AccountControllerAPI interface {
+
+	/*
+	FirstMemberInteractions Method for FirstMemberInteractions
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return AccountControllerAPIFirstMemberInteractionsRequest
+	*/
+	FirstMemberInteractions(ctx context.Context) AccountControllerAPIFirstMemberInteractionsRequest
+
+	// FirstMemberInteractionsExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestAccountFirstMemberInteractions
+	FirstMemberInteractionsExecute(r AccountControllerAPIFirstMemberInteractionsRequest) (*ComHellopublicUserapigatewayApiRestAccountFirstMemberInteractions, *http.Response, error)
+
+	/*
+	GetAccounts Get accounts
+
+	Retrieves the list of financial accounts associated with the authenticated user.
+This includes brokerage, retirement, and high-yield cash accounts.
+
+The response contains account objects that represent each available account.
+
+Note: The `accountId` returned by this endpoint is required for most subsequent API operations.
+It serves as a stable, persistent identifier for the lifetime of the account.
+
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return AccountControllerAPIGetAccountsRequest
+	*/
+	GetAccounts(ctx context.Context) AccountControllerAPIGetAccountsRequest
+
+	// GetAccountsExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestAccountAccountSettingsResponse
+	GetAccountsExecute(r AccountControllerAPIGetAccountsRequest) (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsResponse, *http.Response, error)
+}
+
 // AccountControllerAPIService AccountControllerAPI service
 type AccountControllerAPIService service
 
-type ApiFirstMemberInteractionsRequest struct {
+type AccountControllerAPIFirstMemberInteractionsRequest struct {
 	ctx context.Context
-	ApiService *AccountControllerAPIService
+	ApiService AccountControllerAPI
 }
 
-func (r ApiFirstMemberInteractionsRequest) Execute() (*ComHellopublicUserapigatewayApiRestAccountFirstMemberInteractions, *http.Response, error) {
+func (r AccountControllerAPIFirstMemberInteractionsRequest) Execute() (*ComHellopublicUserapigatewayApiRestAccountFirstMemberInteractions, *http.Response, error) {
 	return r.ApiService.FirstMemberInteractionsExecute(r)
 }
 
@@ -35,10 +71,10 @@ func (r ApiFirstMemberInteractionsRequest) Execute() (*ComHellopublicUserapigate
 FirstMemberInteractions Method for FirstMemberInteractions
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFirstMemberInteractionsRequest
+ @return AccountControllerAPIFirstMemberInteractionsRequest
 */
-func (a *AccountControllerAPIService) FirstMemberInteractions(ctx context.Context) ApiFirstMemberInteractionsRequest {
-	return ApiFirstMemberInteractionsRequest{
+func (a *AccountControllerAPIService) FirstMemberInteractions(ctx context.Context) AccountControllerAPIFirstMemberInteractionsRequest {
+	return AccountControllerAPIFirstMemberInteractionsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -46,7 +82,7 @@ func (a *AccountControllerAPIService) FirstMemberInteractions(ctx context.Contex
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestAccountFirstMemberInteractions
-func (a *AccountControllerAPIService) FirstMemberInteractionsExecute(r ApiFirstMemberInteractionsRequest) (*ComHellopublicUserapigatewayApiRestAccountFirstMemberInteractions, *http.Response, error) {
+func (a *AccountControllerAPIService) FirstMemberInteractionsExecute(r AccountControllerAPIFirstMemberInteractionsRequest) (*ComHellopublicUserapigatewayApiRestAccountFirstMemberInteractions, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -119,12 +155,12 @@ func (a *AccountControllerAPIService) FirstMemberInteractionsExecute(r ApiFirstM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAccountsRequest struct {
+type AccountControllerAPIGetAccountsRequest struct {
 	ctx context.Context
-	ApiService *AccountControllerAPIService
+	ApiService AccountControllerAPI
 }
 
-func (r ApiGetAccountsRequest) Execute() (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsResponse, *http.Response, error) {
+func (r AccountControllerAPIGetAccountsRequest) Execute() (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsResponse, *http.Response, error) {
 	return r.ApiService.GetAccountsExecute(r)
 }
 
@@ -141,10 +177,10 @@ It serves as a stable, persistent identifier for the lifetime of the account.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetAccountsRequest
+ @return AccountControllerAPIGetAccountsRequest
 */
-func (a *AccountControllerAPIService) GetAccounts(ctx context.Context) ApiGetAccountsRequest {
-	return ApiGetAccountsRequest{
+func (a *AccountControllerAPIService) GetAccounts(ctx context.Context) AccountControllerAPIGetAccountsRequest {
+	return AccountControllerAPIGetAccountsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -152,7 +188,7 @@ func (a *AccountControllerAPIService) GetAccounts(ctx context.Context) ApiGetAcc
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestAccountAccountSettingsResponse
-func (a *AccountControllerAPIService) GetAccountsExecute(r ApiGetAccountsRequest) (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsResponse, *http.Response, error) {
+func (a *AccountControllerAPIService) GetAccountsExecute(r AccountControllerAPIGetAccountsRequest) (*ComHellopublicUserapigatewayApiRestAccountAccountSettingsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

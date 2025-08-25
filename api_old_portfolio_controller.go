@@ -19,15 +19,32 @@ import (
 )
 
 
+type OldPortfolioControllerAPI interface {
+
+	/*
+	GetPortfolio Deprecated use /userapigateway/trading/{accountId}/portfolio instead
+
+	Deprecated use /userapigateway/trading/{accountId}/portfolio instead
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OldPortfolioControllerAPIGetPortfolioRequest
+	*/
+	GetPortfolio(ctx context.Context) OldPortfolioControllerAPIGetPortfolioRequest
+
+	// GetPortfolioExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioResponse
+	GetPortfolioExecute(r OldPortfolioControllerAPIGetPortfolioRequest) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioResponse, *http.Response, error)
+}
+
 // OldPortfolioControllerAPIService OldPortfolioControllerAPI service
 type OldPortfolioControllerAPIService service
 
-type ApiGetPortfolioRequest struct {
+type OldPortfolioControllerAPIGetPortfolioRequest struct {
 	ctx context.Context
-	ApiService *OldPortfolioControllerAPIService
+	ApiService OldPortfolioControllerAPI
 }
 
-func (r ApiGetPortfolioRequest) Execute() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioResponse, *http.Response, error) {
+func (r OldPortfolioControllerAPIGetPortfolioRequest) Execute() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioResponse, *http.Response, error) {
 	return r.ApiService.GetPortfolioExecute(r)
 }
 
@@ -37,10 +54,10 @@ GetPortfolio Deprecated use /userapigateway/trading/{accountId}/portfolio instea
 Deprecated use /userapigateway/trading/{accountId}/portfolio instead
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPortfolioRequest
+ @return OldPortfolioControllerAPIGetPortfolioRequest
 */
-func (a *OldPortfolioControllerAPIService) GetPortfolio(ctx context.Context) ApiGetPortfolioRequest {
-	return ApiGetPortfolioRequest{
+func (a *OldPortfolioControllerAPIService) GetPortfolio(ctx context.Context) OldPortfolioControllerAPIGetPortfolioRequest {
+	return OldPortfolioControllerAPIGetPortfolioRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +65,7 @@ func (a *OldPortfolioControllerAPIService) GetPortfolio(ctx context.Context) Api
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioResponse
-func (a *OldPortfolioControllerAPIService) GetPortfolioExecute(r ApiGetPortfolioRequest) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioResponse, *http.Response, error) {
+func (a *OldPortfolioControllerAPIService) GetPortfolioExecute(r OldPortfolioControllerAPIGetPortfolioRequest) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

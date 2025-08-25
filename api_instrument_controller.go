@@ -21,12 +21,47 @@ import (
 )
 
 
+type InstrumentControllerAPI interface {
+
+	/*
+	GetAllInstruments Retrieves all available trading instruments with optional filtering capabilities.
+
+	Retrieves all available trading instruments with optional filtering capabilities.
+
+This endpoint returns a comprehensive list of instruments available for trading,
+with support for filtering by security type and various trading capabilities.
+All filter parameters are optional and can be combined to narrow down results.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return InstrumentControllerAPIGetAllInstrumentsRequest
+	*/
+	GetAllInstruments(ctx context.Context) InstrumentControllerAPIGetAllInstrumentsRequest
+
+	// GetAllInstrumentsExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestOrderApiInstrumentResponse
+	GetAllInstrumentsExecute(r InstrumentControllerAPIGetAllInstrumentsRequest) (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentResponse, *http.Response, error)
+
+	/*
+	GetInstrument Method for GetInstrument
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param symbol
+	@param type_
+	@return InstrumentControllerAPIGetInstrumentRequest
+	*/
+	GetInstrument(ctx context.Context, symbol string, type_ string) InstrumentControllerAPIGetInstrumentRequest
+
+	// GetInstrumentExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto
+	GetInstrumentExecute(r InstrumentControllerAPIGetInstrumentRequest) (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto, *http.Response, error)
+}
+
 // InstrumentControllerAPIService InstrumentControllerAPI service
 type InstrumentControllerAPIService service
 
-type ApiGetAllInstrumentsRequest struct {
+type InstrumentControllerAPIGetAllInstrumentsRequest struct {
 	ctx context.Context
-	ApiService *InstrumentControllerAPIService
+	ApiService InstrumentControllerAPI
 	typeFilter *[]string
 	tradingFilter *[]string
 	fractionalTradingFilter *[]string
@@ -35,36 +70,36 @@ type ApiGetAllInstrumentsRequest struct {
 }
 
 // optional set of security types to filter by ([GatewaySecurityType])
-func (r ApiGetAllInstrumentsRequest) TypeFilter(typeFilter []string) ApiGetAllInstrumentsRequest {
+func (r InstrumentControllerAPIGetAllInstrumentsRequest) TypeFilter(typeFilter []string) InstrumentControllerAPIGetAllInstrumentsRequest {
 	r.typeFilter = &typeFilter
 	return r
 }
 
 // optional set of trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) TradingFilter(tradingFilter []string) ApiGetAllInstrumentsRequest {
+func (r InstrumentControllerAPIGetAllInstrumentsRequest) TradingFilter(tradingFilter []string) InstrumentControllerAPIGetAllInstrumentsRequest {
 	r.tradingFilter = &tradingFilter
 	return r
 }
 
 // optional set of fractional trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) FractionalTradingFilter(fractionalTradingFilter []string) ApiGetAllInstrumentsRequest {
+func (r InstrumentControllerAPIGetAllInstrumentsRequest) FractionalTradingFilter(fractionalTradingFilter []string) InstrumentControllerAPIGetAllInstrumentsRequest {
 	r.fractionalTradingFilter = &fractionalTradingFilter
 	return r
 }
 
 // optional set of option trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) OptionTradingFilter(optionTradingFilter []string) ApiGetAllInstrumentsRequest {
+func (r InstrumentControllerAPIGetAllInstrumentsRequest) OptionTradingFilter(optionTradingFilter []string) InstrumentControllerAPIGetAllInstrumentsRequest {
 	r.optionTradingFilter = &optionTradingFilter
 	return r
 }
 
 // optional set of option spread trading statuses to filter by ([ApiInstrumentDto.Trading])
-func (r ApiGetAllInstrumentsRequest) OptionSpreadTradingFilter(optionSpreadTradingFilter []string) ApiGetAllInstrumentsRequest {
+func (r InstrumentControllerAPIGetAllInstrumentsRequest) OptionSpreadTradingFilter(optionSpreadTradingFilter []string) InstrumentControllerAPIGetAllInstrumentsRequest {
 	r.optionSpreadTradingFilter = &optionSpreadTradingFilter
 	return r
 }
 
-func (r ApiGetAllInstrumentsRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentResponse, *http.Response, error) {
+func (r InstrumentControllerAPIGetAllInstrumentsRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentResponse, *http.Response, error) {
 	return r.ApiService.GetAllInstrumentsExecute(r)
 }
 
@@ -78,10 +113,10 @@ with support for filtering by security type and various trading capabilities.
 All filter parameters are optional and can be combined to narrow down results.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetAllInstrumentsRequest
+ @return InstrumentControllerAPIGetAllInstrumentsRequest
 */
-func (a *InstrumentControllerAPIService) GetAllInstruments(ctx context.Context) ApiGetAllInstrumentsRequest {
-	return ApiGetAllInstrumentsRequest{
+func (a *InstrumentControllerAPIService) GetAllInstruments(ctx context.Context) InstrumentControllerAPIGetAllInstrumentsRequest {
+	return InstrumentControllerAPIGetAllInstrumentsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -89,7 +124,7 @@ func (a *InstrumentControllerAPIService) GetAllInstruments(ctx context.Context) 
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestOrderApiInstrumentResponse
-func (a *InstrumentControllerAPIService) GetAllInstrumentsExecute(r ApiGetAllInstrumentsRequest) (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentResponse, *http.Response, error) {
+func (a *InstrumentControllerAPIService) GetAllInstrumentsExecute(r InstrumentControllerAPIGetAllInstrumentsRequest) (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -217,14 +252,14 @@ func (a *InstrumentControllerAPIService) GetAllInstrumentsExecute(r ApiGetAllIns
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetInstrumentRequest struct {
+type InstrumentControllerAPIGetInstrumentRequest struct {
 	ctx context.Context
-	ApiService *InstrumentControllerAPIService
+	ApiService InstrumentControllerAPI
 	symbol string
 	type_ string
 }
 
-func (r ApiGetInstrumentRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto, *http.Response, error) {
+func (r InstrumentControllerAPIGetInstrumentRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto, *http.Response, error) {
 	return r.ApiService.GetInstrumentExecute(r)
 }
 
@@ -234,10 +269,10 @@ GetInstrument Method for GetInstrument
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param symbol
  @param type_
- @return ApiGetInstrumentRequest
+ @return InstrumentControllerAPIGetInstrumentRequest
 */
-func (a *InstrumentControllerAPIService) GetInstrument(ctx context.Context, symbol string, type_ string) ApiGetInstrumentRequest {
-	return ApiGetInstrumentRequest{
+func (a *InstrumentControllerAPIService) GetInstrument(ctx context.Context, symbol string, type_ string) InstrumentControllerAPIGetInstrumentRequest {
+	return InstrumentControllerAPIGetInstrumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		symbol: symbol,
@@ -247,7 +282,7 @@ func (a *InstrumentControllerAPIService) GetInstrument(ctx context.Context, symb
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto
-func (a *InstrumentControllerAPIService) GetInstrumentExecute(r ApiGetInstrumentRequest) (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto, *http.Response, error) {
+func (a *InstrumentControllerAPIService) GetInstrumentExecute(r InstrumentControllerAPIGetInstrumentRequest) (*ComHellopublicUserapigatewayApiRestOrderApiInstrumentDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

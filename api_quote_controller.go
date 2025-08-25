@@ -20,22 +20,73 @@ import (
 )
 
 
+type QuoteControllerAPI interface {
+
+	/*
+	GetOptionChain Get option chain
+
+	Requires the `marketdata` scope.
+
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return QuoteControllerAPIGetOptionChainRequest
+	*/
+	GetOptionChain(ctx context.Context, accountId string) QuoteControllerAPIGetOptionChainRequest
+
+	// GetOptionChainExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainResponse
+	GetOptionChainExecute(r QuoteControllerAPIGetOptionChainRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainResponse, *http.Response, error)
+
+	/*
+	GetOptionExpirations Get option expirations
+
+	Requires the `marketdata` scope.
+
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return QuoteControllerAPIGetOptionExpirationsRequest
+	*/
+	GetOptionExpirations(ctx context.Context, accountId string) QuoteControllerAPIGetOptionExpirationsRequest
+
+	// GetOptionExpirationsExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsResponse
+	GetOptionExpirationsExecute(r QuoteControllerAPIGetOptionExpirationsRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsResponse, *http.Response, error)
+
+	/*
+	GetQuotes Get quotes
+
+	Requires the `marketdata` scope.
+
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return QuoteControllerAPIGetQuotesRequest
+	*/
+	GetQuotes(ctx context.Context, accountId string) QuoteControllerAPIGetQuotesRequest
+
+	// GetQuotesExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteResponse
+	GetQuotesExecute(r QuoteControllerAPIGetQuotesRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteResponse, *http.Response, error)
+}
+
 // QuoteControllerAPIService QuoteControllerAPI service
 type QuoteControllerAPIService service
 
-type ApiGetOptionChainRequest struct {
+type QuoteControllerAPIGetOptionChainRequest struct {
 	ctx context.Context
-	ApiService *QuoteControllerAPIService
+	ApiService QuoteControllerAPI
 	accountId string
 	comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest
 }
 
-func (r ApiGetOptionChainRequest) ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest(comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest) ApiGetOptionChainRequest {
+func (r QuoteControllerAPIGetOptionChainRequest) ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest(comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest) QuoteControllerAPIGetOptionChainRequest {
 	r.comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest = &comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainRequest
 	return r
 }
 
-func (r ApiGetOptionChainRequest) Execute() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainResponse, *http.Response, error) {
+func (r QuoteControllerAPIGetOptionChainRequest) Execute() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainResponse, *http.Response, error) {
 	return r.ApiService.GetOptionChainExecute(r)
 }
 
@@ -47,10 +98,10 @@ Requires the `marketdata` scope.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiGetOptionChainRequest
+ @return QuoteControllerAPIGetOptionChainRequest
 */
-func (a *QuoteControllerAPIService) GetOptionChain(ctx context.Context, accountId string) ApiGetOptionChainRequest {
-	return ApiGetOptionChainRequest{
+func (a *QuoteControllerAPIService) GetOptionChain(ctx context.Context, accountId string) QuoteControllerAPIGetOptionChainRequest {
+	return QuoteControllerAPIGetOptionChainRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -59,7 +110,7 @@ func (a *QuoteControllerAPIService) GetOptionChain(ctx context.Context, accountI
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainResponse
-func (a *QuoteControllerAPIService) GetOptionChainExecute(r ApiGetOptionChainRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainResponse, *http.Response, error) {
+func (a *QuoteControllerAPIService) GetOptionChainExecute(r QuoteControllerAPIGetOptionChainRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionChainResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -151,19 +202,19 @@ func (a *QuoteControllerAPIService) GetOptionChainExecute(r ApiGetOptionChainReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOptionExpirationsRequest struct {
+type QuoteControllerAPIGetOptionExpirationsRequest struct {
 	ctx context.Context
-	ApiService *QuoteControllerAPIService
+	ApiService QuoteControllerAPI
 	accountId string
 	comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest
 }
 
-func (r ApiGetOptionExpirationsRequest) ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest(comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest) ApiGetOptionExpirationsRequest {
+func (r QuoteControllerAPIGetOptionExpirationsRequest) ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest(comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest) QuoteControllerAPIGetOptionExpirationsRequest {
 	r.comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest = &comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsRequest
 	return r
 }
 
-func (r ApiGetOptionExpirationsRequest) Execute() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsResponse, *http.Response, error) {
+func (r QuoteControllerAPIGetOptionExpirationsRequest) Execute() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsResponse, *http.Response, error) {
 	return r.ApiService.GetOptionExpirationsExecute(r)
 }
 
@@ -175,10 +226,10 @@ Requires the `marketdata` scope.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiGetOptionExpirationsRequest
+ @return QuoteControllerAPIGetOptionExpirationsRequest
 */
-func (a *QuoteControllerAPIService) GetOptionExpirations(ctx context.Context, accountId string) ApiGetOptionExpirationsRequest {
-	return ApiGetOptionExpirationsRequest{
+func (a *QuoteControllerAPIService) GetOptionExpirations(ctx context.Context, accountId string) QuoteControllerAPIGetOptionExpirationsRequest {
+	return QuoteControllerAPIGetOptionExpirationsRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -187,7 +238,7 @@ func (a *QuoteControllerAPIService) GetOptionExpirations(ctx context.Context, ac
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsResponse
-func (a *QuoteControllerAPIService) GetOptionExpirationsExecute(r ApiGetOptionExpirationsRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsResponse, *http.Response, error) {
+func (a *QuoteControllerAPIService) GetOptionExpirationsExecute(r QuoteControllerAPIGetOptionExpirationsRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayOptionExpirationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -279,19 +330,19 @@ func (a *QuoteControllerAPIService) GetOptionExpirationsExecute(r ApiGetOptionEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetQuotesRequest struct {
+type QuoteControllerAPIGetQuotesRequest struct {
 	ctx context.Context
-	ApiService *QuoteControllerAPIService
+	ApiService QuoteControllerAPI
 	accountId string
 	comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest *ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest
 }
 
-func (r ApiGetQuotesRequest) ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest(comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest) ApiGetQuotesRequest {
+func (r QuoteControllerAPIGetQuotesRequest) ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest(comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest) QuoteControllerAPIGetQuotesRequest {
 	r.comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest = &comHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteRequest
 	return r
 }
 
-func (r ApiGetQuotesRequest) Execute() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteResponse, *http.Response, error) {
+func (r QuoteControllerAPIGetQuotesRequest) Execute() (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteResponse, *http.Response, error) {
 	return r.ApiService.GetQuotesExecute(r)
 }
 
@@ -303,10 +354,10 @@ Requires the `marketdata` scope.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiGetQuotesRequest
+ @return QuoteControllerAPIGetQuotesRequest
 */
-func (a *QuoteControllerAPIService) GetQuotes(ctx context.Context, accountId string) ApiGetQuotesRequest {
-	return ApiGetQuotesRequest{
+func (a *QuoteControllerAPIService) GetQuotes(ctx context.Context, accountId string) QuoteControllerAPIGetQuotesRequest {
+	return QuoteControllerAPIGetQuotesRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -315,7 +366,7 @@ func (a *QuoteControllerAPIService) GetQuotes(ctx context.Context, accountId str
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteResponse
-func (a *QuoteControllerAPIService) GetQuotesExecute(r ApiGetQuotesRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteResponse, *http.Response, error) {
+func (a *QuoteControllerAPIService) GetQuotesExecute(r QuoteControllerAPIGetQuotesRequest) (*ComHellopublicUserapigatewayApiRestMarketdataQuoteGatewayQuoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}

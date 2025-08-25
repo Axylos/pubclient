@@ -20,17 +20,73 @@ import (
 )
 
 
+type OrderControllerAPI interface {
+
+	/*
+	CancelOrder Cancel the an order. System is async, use the GET endpoint to see when the order is cancelled.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@param orderId
+	@return OrderControllerAPICancelOrderRequest
+	*/
+	CancelOrder(ctx context.Context, accountId string, orderId string) OrderControllerAPICancelOrderRequest
+
+	// CancelOrderExecute executes the request
+	CancelOrderExecute(r OrderControllerAPICancelOrderRequest) (*http.Response, error)
+
+	/*
+	GetOrder Get the details for an order. Placing orders is async, so this endpoint may return 404 if the order has not bee processed yet.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@param orderId
+	@return OrderControllerAPIGetOrderRequest
+	*/
+	GetOrder(ctx context.Context, accountId string, orderId string) OrderControllerAPIGetOrderRequest
+
+	// GetOrderExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestOrderGatewayOrder
+	GetOrderExecute(r OrderControllerAPIGetOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderGatewayOrder, *http.Response, error)
+
+	/*
+	PlaceMultilegOrder Create a new multi-leg order. Placing orders is async, use the GET endpoint to get details about the order.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return OrderControllerAPIPlaceMultilegOrderRequest
+	*/
+	PlaceMultilegOrder(ctx context.Context, accountId string) OrderControllerAPIPlaceMultilegOrderRequest
+
+	// PlaceMultilegOrderExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestOrderApiOrderResult
+	PlaceMultilegOrderExecute(r OrderControllerAPIPlaceMultilegOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error)
+
+	/*
+	PlaceOrder Create a new order. Placing orders is async, use the GET endpoint to get details about the order.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return OrderControllerAPIPlaceOrderRequest
+	*/
+	PlaceOrder(ctx context.Context, accountId string) OrderControllerAPIPlaceOrderRequest
+
+	// PlaceOrderExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestOrderApiOrderResult
+	PlaceOrderExecute(r OrderControllerAPIPlaceOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error)
+}
+
 // OrderControllerAPIService OrderControllerAPI service
 type OrderControllerAPIService service
 
-type ApiCancelOrderRequest struct {
+type OrderControllerAPICancelOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderControllerAPIService
+	ApiService OrderControllerAPI
 	accountId string
 	orderId string
 }
 
-func (r ApiCancelOrderRequest) Execute() (*http.Response, error) {
+func (r OrderControllerAPICancelOrderRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelOrderExecute(r)
 }
 
@@ -40,10 +96,10 @@ CancelOrder Cancel the an order. System is async, use the GET endpoint to see wh
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
  @param orderId
- @return ApiCancelOrderRequest
+ @return OrderControllerAPICancelOrderRequest
 */
-func (a *OrderControllerAPIService) CancelOrder(ctx context.Context, accountId string, orderId string) ApiCancelOrderRequest {
-	return ApiCancelOrderRequest{
+func (a *OrderControllerAPIService) CancelOrder(ctx context.Context, accountId string, orderId string) OrderControllerAPICancelOrderRequest {
+	return OrderControllerAPICancelOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -52,7 +108,7 @@ func (a *OrderControllerAPIService) CancelOrder(ctx context.Context, accountId s
 }
 
 // Execute executes the request
-func (a *OrderControllerAPIService) CancelOrderExecute(r ApiCancelOrderRequest) (*http.Response, error) {
+func (a *OrderControllerAPIService) CancelOrderExecute(r OrderControllerAPICancelOrderRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -117,14 +173,14 @@ func (a *OrderControllerAPIService) CancelOrderExecute(r ApiCancelOrderRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetOrderRequest struct {
+type OrderControllerAPIGetOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderControllerAPIService
+	ApiService OrderControllerAPI
 	accountId string
 	orderId string
 }
 
-func (r ApiGetOrderRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrder, *http.Response, error) {
+func (r OrderControllerAPIGetOrderRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderGatewayOrder, *http.Response, error) {
 	return r.ApiService.GetOrderExecute(r)
 }
 
@@ -134,10 +190,10 @@ GetOrder Get the details for an order. Placing orders is async, so this endpoint
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
  @param orderId
- @return ApiGetOrderRequest
+ @return OrderControllerAPIGetOrderRequest
 */
-func (a *OrderControllerAPIService) GetOrder(ctx context.Context, accountId string, orderId string) ApiGetOrderRequest {
-	return ApiGetOrderRequest{
+func (a *OrderControllerAPIService) GetOrder(ctx context.Context, accountId string, orderId string) OrderControllerAPIGetOrderRequest {
+	return OrderControllerAPIGetOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -147,7 +203,7 @@ func (a *OrderControllerAPIService) GetOrder(ctx context.Context, accountId stri
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestOrderGatewayOrder
-func (a *OrderControllerAPIService) GetOrderExecute(r ApiGetOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderGatewayOrder, *http.Response, error) {
+func (a *OrderControllerAPIService) GetOrderExecute(r OrderControllerAPIGetOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderGatewayOrder, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -232,19 +288,19 @@ func (a *OrderControllerAPIService) GetOrderExecute(r ApiGetOrderRequest) (*ComH
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPlaceMultilegOrderRequest struct {
+type OrderControllerAPIPlaceMultilegOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderControllerAPIService
+	ApiService OrderControllerAPI
 	accountId string
 	comHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest *ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest
 }
 
-func (r ApiPlaceMultilegOrderRequest) ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest(comHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) ApiPlaceMultilegOrderRequest {
+func (r OrderControllerAPIPlaceMultilegOrderRequest) ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest(comHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest ComHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest) OrderControllerAPIPlaceMultilegOrderRequest {
 	r.comHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest = &comHellopublicUserapigatewayApiRestOrderApiMultilegOrderRequest
 	return r
 }
 
-func (r ApiPlaceMultilegOrderRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
+func (r OrderControllerAPIPlaceMultilegOrderRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
 	return r.ApiService.PlaceMultilegOrderExecute(r)
 }
 
@@ -253,10 +309,10 @@ PlaceMultilegOrder Create a new multi-leg order. Placing orders is async, use th
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiPlaceMultilegOrderRequest
+ @return OrderControllerAPIPlaceMultilegOrderRequest
 */
-func (a *OrderControllerAPIService) PlaceMultilegOrder(ctx context.Context, accountId string) ApiPlaceMultilegOrderRequest {
-	return ApiPlaceMultilegOrderRequest{
+func (a *OrderControllerAPIService) PlaceMultilegOrder(ctx context.Context, accountId string) OrderControllerAPIPlaceMultilegOrderRequest {
+	return OrderControllerAPIPlaceMultilegOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -265,7 +321,7 @@ func (a *OrderControllerAPIService) PlaceMultilegOrder(ctx context.Context, acco
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestOrderApiOrderResult
-func (a *OrderControllerAPIService) PlaceMultilegOrderExecute(r ApiPlaceMultilegOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
+func (a *OrderControllerAPIService) PlaceMultilegOrderExecute(r OrderControllerAPIPlaceMultilegOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -354,19 +410,19 @@ func (a *OrderControllerAPIService) PlaceMultilegOrderExecute(r ApiPlaceMultileg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPlaceOrderRequest struct {
+type OrderControllerAPIPlaceOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderControllerAPIService
+	ApiService OrderControllerAPI
 	accountId string
 	comHellopublicUserapigatewayApiRestOrderApiOrderRequest *ComHellopublicUserapigatewayApiRestOrderApiOrderRequest
 }
 
-func (r ApiPlaceOrderRequest) ComHellopublicUserapigatewayApiRestOrderApiOrderRequest(comHellopublicUserapigatewayApiRestOrderApiOrderRequest ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) ApiPlaceOrderRequest {
+func (r OrderControllerAPIPlaceOrderRequest) ComHellopublicUserapigatewayApiRestOrderApiOrderRequest(comHellopublicUserapigatewayApiRestOrderApiOrderRequest ComHellopublicUserapigatewayApiRestOrderApiOrderRequest) OrderControllerAPIPlaceOrderRequest {
 	r.comHellopublicUserapigatewayApiRestOrderApiOrderRequest = &comHellopublicUserapigatewayApiRestOrderApiOrderRequest
 	return r
 }
 
-func (r ApiPlaceOrderRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
+func (r OrderControllerAPIPlaceOrderRequest) Execute() (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
 	return r.ApiService.PlaceOrderExecute(r)
 }
 
@@ -375,10 +431,10 @@ PlaceOrder Create a new order. Placing orders is async, use the GET endpoint to 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiPlaceOrderRequest
+ @return OrderControllerAPIPlaceOrderRequest
 */
-func (a *OrderControllerAPIService) PlaceOrder(ctx context.Context, accountId string) ApiPlaceOrderRequest {
-	return ApiPlaceOrderRequest{
+func (a *OrderControllerAPIService) PlaceOrder(ctx context.Context, accountId string) OrderControllerAPIPlaceOrderRequest {
+	return OrderControllerAPIPlaceOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -387,7 +443,7 @@ func (a *OrderControllerAPIService) PlaceOrder(ctx context.Context, accountId st
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestOrderApiOrderResult
-func (a *OrderControllerAPIService) PlaceOrderExecute(r ApiPlaceOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
+func (a *OrderControllerAPIService) PlaceOrderExecute(r OrderControllerAPIPlaceOrderRequest) (*ComHellopublicUserapigatewayApiRestOrderApiOrderResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}

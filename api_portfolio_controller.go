@@ -20,16 +20,47 @@ import (
 )
 
 
+type PortfolioControllerAPI interface {
+
+	/*
+	GetAccountPortfolio Method for GetAccountPortfolio
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return PortfolioControllerAPIGetAccountPortfolioRequest
+	*/
+	GetAccountPortfolio(ctx context.Context, accountId string) PortfolioControllerAPIGetAccountPortfolioRequest
+
+	// GetAccountPortfolioExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount
+	GetAccountPortfolioExecute(r PortfolioControllerAPIGetAccountPortfolioRequest) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount, *http.Response, error)
+
+	/*
+	GetAccountPortfolioV2 Retrieve an account portfolio details snapshot
+
+	Retrieves a snapshot of a specified account’s portfolio, including positions, equity breakdown, buying power, and open orders. Only non-IRA accounts are supported. The account must exist and belong to the authenticated client.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return PortfolioControllerAPIGetAccountPortfolioV2Request
+	*/
+	GetAccountPortfolioV2(ctx context.Context, accountId string) PortfolioControllerAPIGetAccountPortfolioV2Request
+
+	// GetAccountPortfolioV2Execute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2
+	GetAccountPortfolioV2Execute(r PortfolioControllerAPIGetAccountPortfolioV2Request) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2, *http.Response, error)
+}
+
 // PortfolioControllerAPIService PortfolioControllerAPI service
 type PortfolioControllerAPIService service
 
-type ApiGetAccountPortfolioRequest struct {
+type PortfolioControllerAPIGetAccountPortfolioRequest struct {
 	ctx context.Context
-	ApiService *PortfolioControllerAPIService
+	ApiService PortfolioControllerAPI
 	accountId string
 }
 
-func (r ApiGetAccountPortfolioRequest) Execute() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount, *http.Response, error) {
+func (r PortfolioControllerAPIGetAccountPortfolioRequest) Execute() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount, *http.Response, error) {
 	return r.ApiService.GetAccountPortfolioExecute(r)
 }
 
@@ -38,10 +69,10 @@ GetAccountPortfolio Method for GetAccountPortfolio
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiGetAccountPortfolioRequest
+ @return PortfolioControllerAPIGetAccountPortfolioRequest
 */
-func (a *PortfolioControllerAPIService) GetAccountPortfolio(ctx context.Context, accountId string) ApiGetAccountPortfolioRequest {
-	return ApiGetAccountPortfolioRequest{
+func (a *PortfolioControllerAPIService) GetAccountPortfolio(ctx context.Context, accountId string) PortfolioControllerAPIGetAccountPortfolioRequest {
+	return PortfolioControllerAPIGetAccountPortfolioRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -50,7 +81,7 @@ func (a *PortfolioControllerAPIService) GetAccountPortfolio(ctx context.Context,
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount
-func (a *PortfolioControllerAPIService) GetAccountPortfolioExecute(r ApiGetAccountPortfolioRequest) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount, *http.Response, error) {
+func (a *PortfolioControllerAPIService) GetAccountPortfolioExecute(r PortfolioControllerAPIGetAccountPortfolioRequest) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccount, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -137,13 +168,13 @@ func (a *PortfolioControllerAPIService) GetAccountPortfolioExecute(r ApiGetAccou
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAccountPortfolioV2Request struct {
+type PortfolioControllerAPIGetAccountPortfolioV2Request struct {
 	ctx context.Context
-	ApiService *PortfolioControllerAPIService
+	ApiService PortfolioControllerAPI
 	accountId string
 }
 
-func (r ApiGetAccountPortfolioV2Request) Execute() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2, *http.Response, error) {
+func (r PortfolioControllerAPIGetAccountPortfolioV2Request) Execute() (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2, *http.Response, error) {
 	return r.ApiService.GetAccountPortfolioV2Execute(r)
 }
 
@@ -154,10 +185,10 @@ Retrieves a snapshot of a specified account’s portfolio, including positions, 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiGetAccountPortfolioV2Request
+ @return PortfolioControllerAPIGetAccountPortfolioV2Request
 */
-func (a *PortfolioControllerAPIService) GetAccountPortfolioV2(ctx context.Context, accountId string) ApiGetAccountPortfolioV2Request {
-	return ApiGetAccountPortfolioV2Request{
+func (a *PortfolioControllerAPIService) GetAccountPortfolioV2(ctx context.Context, accountId string) PortfolioControllerAPIGetAccountPortfolioV2Request {
+	return PortfolioControllerAPIGetAccountPortfolioV2Request{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -166,7 +197,7 @@ func (a *PortfolioControllerAPIService) GetAccountPortfolioV2(ctx context.Contex
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2
-func (a *PortfolioControllerAPIService) GetAccountPortfolioV2Execute(r ApiGetAccountPortfolioV2Request) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2, *http.Response, error) {
+func (a *PortfolioControllerAPIService) GetAccountPortfolioV2Execute(r PortfolioControllerAPIGetAccountPortfolioV2Request) (*ComHellopublicUserapigatewayApiRestPortfolioGatewayPortfolioAccountV2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

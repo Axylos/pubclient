@@ -49,23 +49,23 @@ type APIClient struct {
 
 	// API Services
 
-	AccountControllerAPI *AccountControllerAPIService
+	AccountControllerAPI AccountControllerAPI
 
-	HistoryControllerAPI *HistoryControllerAPIService
+	HistoryControllerAPI HistoryControllerAPI
 
-	InstrumentControllerAPI *InstrumentControllerAPIService
+	InstrumentControllerAPI InstrumentControllerAPI
 
-	OldPortfolioControllerAPI *OldPortfolioControllerAPIService
+	OldPortfolioControllerAPI OldPortfolioControllerAPI
 
-	OrderControllerAPI *OrderControllerAPIService
+	OrderControllerAPI OrderControllerAPI
 
-	PortfolioControllerAPI *PortfolioControllerAPIService
+	PortfolioControllerAPI PortfolioControllerAPI
 
-	PreflightControllerAPI *PreflightControllerAPIService
+	PreflightControllerAPI PreflightControllerAPI
 
-	QuoteControllerAPI *QuoteControllerAPIService
+	QuoteControllerAPI QuoteControllerAPI
 
-	UserControllerAPI *UserControllerAPIService
+	UserControllerAPI UserControllerAPI
 }
 
 type service struct {

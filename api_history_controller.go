@@ -21,12 +21,28 @@ import (
 )
 
 
+type HistoryControllerAPI interface {
+
+	/*
+	GetHistory Method for GetHistory
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId The account ID.
+	@return HistoryControllerAPIGetHistoryRequest
+	*/
+	GetHistory(ctx context.Context, accountId string) HistoryControllerAPIGetHistoryRequest
+
+	// GetHistoryExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryResponsePage
+	GetHistoryExecute(r HistoryControllerAPIGetHistoryRequest) (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryResponsePage, *http.Response, error)
+}
+
 // HistoryControllerAPIService HistoryControllerAPI service
 type HistoryControllerAPIService service
 
-type ApiGetHistoryRequest struct {
+type HistoryControllerAPIGetHistoryRequest struct {
 	ctx context.Context
-	ApiService *HistoryControllerAPIService
+	ApiService HistoryControllerAPI
 	accountId string
 	start *time.Time
 	end *time.Time
@@ -35,30 +51,30 @@ type ApiGetHistoryRequest struct {
 }
 
 // Start timestamp of the history query.
-func (r ApiGetHistoryRequest) Start(start time.Time) ApiGetHistoryRequest {
+func (r HistoryControllerAPIGetHistoryRequest) Start(start time.Time) HistoryControllerAPIGetHistoryRequest {
 	r.start = &start
 	return r
 }
 
 // End timestamp of the history query.
-func (r ApiGetHistoryRequest) End(end time.Time) ApiGetHistoryRequest {
+func (r HistoryControllerAPIGetHistoryRequest) End(end time.Time) HistoryControllerAPIGetHistoryRequest {
 	r.end = &end
 	return r
 }
 
 // Maximum of items to return. The response can contain fewer items if the events page contains items not relevant for history.
-func (r ApiGetHistoryRequest) PageSize(pageSize int32) ApiGetHistoryRequest {
+func (r HistoryControllerAPIGetHistoryRequest) PageSize(pageSize int32) HistoryControllerAPIGetHistoryRequest {
 	r.pageSize = &pageSize
 	return r
 }
 
 // Token to retrieve the next page of results.
-func (r ApiGetHistoryRequest) NextToken(nextToken string) ApiGetHistoryRequest {
+func (r HistoryControllerAPIGetHistoryRequest) NextToken(nextToken string) HistoryControllerAPIGetHistoryRequest {
 	r.nextToken = &nextToken
 	return r
 }
 
-func (r ApiGetHistoryRequest) Execute() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryResponsePage, *http.Response, error) {
+func (r HistoryControllerAPIGetHistoryRequest) Execute() (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryResponsePage, *http.Response, error) {
 	return r.ApiService.GetHistoryExecute(r)
 }
 
@@ -67,10 +83,10 @@ GetHistory Method for GetHistory
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The account ID.
- @return ApiGetHistoryRequest
+ @return HistoryControllerAPIGetHistoryRequest
 */
-func (a *HistoryControllerAPIService) GetHistory(ctx context.Context, accountId string) ApiGetHistoryRequest {
-	return ApiGetHistoryRequest{
+func (a *HistoryControllerAPIService) GetHistory(ctx context.Context, accountId string) HistoryControllerAPIGetHistoryRequest {
+	return HistoryControllerAPIGetHistoryRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -79,7 +95,7 @@ func (a *HistoryControllerAPIService) GetHistory(ctx context.Context, accountId 
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryResponsePage
-func (a *HistoryControllerAPIService) GetHistoryExecute(r ApiGetHistoryRequest) (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryResponsePage, *http.Response, error) {
+func (a *HistoryControllerAPIService) GetHistoryExecute(r HistoryControllerAPIGetHistoryRequest) (*ComHellopublicUserapigatewayApiRestHistoryGatewayHistoryResponsePage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

@@ -19,15 +19,30 @@ import (
 )
 
 
+type UserControllerAPI interface {
+
+	/*
+	GetKycForUser Method for GetKycForUser
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return UserControllerAPIGetKycForUserRequest
+	*/
+	GetKycForUser(ctx context.Context) UserControllerAPIGetKycForUserRequest
+
+	// GetKycForUserExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestUserPersonInfoWithAccountKycResponse
+	GetKycForUserExecute(r UserControllerAPIGetKycForUserRequest) (*ComHellopublicUserapigatewayApiRestUserPersonInfoWithAccountKycResponse, *http.Response, error)
+}
+
 // UserControllerAPIService UserControllerAPI service
 type UserControllerAPIService service
 
-type ApiGetKycForUserRequest struct {
+type UserControllerAPIGetKycForUserRequest struct {
 	ctx context.Context
-	ApiService *UserControllerAPIService
+	ApiService UserControllerAPI
 }
 
-func (r ApiGetKycForUserRequest) Execute() (*ComHellopublicUserapigatewayApiRestUserPersonInfoWithAccountKycResponse, *http.Response, error) {
+func (r UserControllerAPIGetKycForUserRequest) Execute() (*ComHellopublicUserapigatewayApiRestUserPersonInfoWithAccountKycResponse, *http.Response, error) {
 	return r.ApiService.GetKycForUserExecute(r)
 }
 
@@ -35,10 +50,10 @@ func (r ApiGetKycForUserRequest) Execute() (*ComHellopublicUserapigatewayApiRest
 GetKycForUser Method for GetKycForUser
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetKycForUserRequest
+ @return UserControllerAPIGetKycForUserRequest
 */
-func (a *UserControllerAPIService) GetKycForUser(ctx context.Context) ApiGetKycForUserRequest {
-	return ApiGetKycForUserRequest{
+func (a *UserControllerAPIService) GetKycForUser(ctx context.Context) UserControllerAPIGetKycForUserRequest {
+	return UserControllerAPIGetKycForUserRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -46,7 +61,7 @@ func (a *UserControllerAPIService) GetKycForUser(ctx context.Context) ApiGetKycF
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestUserPersonInfoWithAccountKycResponse
-func (a *UserControllerAPIService) GetKycForUserExecute(r ApiGetKycForUserRequest) (*ComHellopublicUserapigatewayApiRestUserPersonInfoWithAccountKycResponse, *http.Response, error) {
+func (a *UserControllerAPIService) GetKycForUserExecute(r UserControllerAPIGetKycForUserRequest) (*ComHellopublicUserapigatewayApiRestUserPersonInfoWithAccountKycResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

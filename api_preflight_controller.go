@@ -20,22 +20,55 @@ import (
 )
 
 
+type PreflightControllerAPI interface {
+
+	/*
+	PreflightMultiLeg Calculates the estimated financial impact of a complex multi-leg trade before execution
+
+	Performs preflight calculations for a multi-leg order (a transaction involving multiple securities or options strategies such as spreads, straddles, or combinations) to provide comprehensive cost estimates and account impact details. Returns estimated commission, regulatory fees, total order value, buying power requirements, margin impact, net credit/debit amounts, and strategy-specific information to help users make informed trading decisions before order placement. This endpoint handles complex options strategies and calculates the combined effect of all legs in the trade. Note that these are estimates only, and actual execution values may vary depending on market conditions and fill prices. This endpoint may be called before submitting an actual multi-leg order to understand the potential financial implications of the strategy.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return PreflightControllerAPIPreflightMultiLegRequest
+	*/
+	PreflightMultiLeg(ctx context.Context, accountId string) PreflightControllerAPIPreflightMultiLegRequest
+
+	// PreflightMultiLegExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegResponse
+	PreflightMultiLegExecute(r PreflightControllerAPIPreflightMultiLegRequest) (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegResponse, *http.Response, error)
+
+	/*
+	PreflightSingleLeg Calculates the estimated financial impact of a potential trade before execution
+
+	Performs preflight calculations for a single-leg order (a transaction involving a single security) to provide comprehensive cost estimates and account impact details. Returns estimated commission, regulatory fees, order value, buying power requirements, margin impact, and other trade-specific information to help users make informed trading decisions before order placement. Note that these are estimates only, and actual execution values may vary depending on market conditions. This endpoint may be called before submitting an actual order to understand the potential financial implications.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param accountId
+	@return PreflightControllerAPIPreflightSingleLegRequest
+	*/
+	PreflightSingleLeg(ctx context.Context, accountId string) PreflightControllerAPIPreflightSingleLegRequest
+
+	// PreflightSingleLegExecute executes the request
+	//  @return ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegResponse
+	PreflightSingleLegExecute(r PreflightControllerAPIPreflightSingleLegRequest) (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegResponse, *http.Response, error)
+}
+
 // PreflightControllerAPIService PreflightControllerAPI service
 type PreflightControllerAPIService service
 
-type ApiPreflightMultiLegRequest struct {
+type PreflightControllerAPIPreflightMultiLegRequest struct {
 	ctx context.Context
-	ApiService *PreflightControllerAPIService
+	ApiService PreflightControllerAPI
 	accountId string
 	comHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest *ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest
 }
 
-func (r ApiPreflightMultiLegRequest) ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest(comHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) ApiPreflightMultiLegRequest {
+func (r PreflightControllerAPIPreflightMultiLegRequest) ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest(comHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest) PreflightControllerAPIPreflightMultiLegRequest {
 	r.comHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest = &comHellopublicUserapigatewayApiRestPreflightPreflightMultiLegRequest
 	return r
 }
 
-func (r ApiPreflightMultiLegRequest) Execute() (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegResponse, *http.Response, error) {
+func (r PreflightControllerAPIPreflightMultiLegRequest) Execute() (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegResponse, *http.Response, error) {
 	return r.ApiService.PreflightMultiLegExecute(r)
 }
 
@@ -46,10 +79,10 @@ Performs preflight calculations for a multi-leg order (a transaction involving m
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiPreflightMultiLegRequest
+ @return PreflightControllerAPIPreflightMultiLegRequest
 */
-func (a *PreflightControllerAPIService) PreflightMultiLeg(ctx context.Context, accountId string) ApiPreflightMultiLegRequest {
-	return ApiPreflightMultiLegRequest{
+func (a *PreflightControllerAPIService) PreflightMultiLeg(ctx context.Context, accountId string) PreflightControllerAPIPreflightMultiLegRequest {
+	return PreflightControllerAPIPreflightMultiLegRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -58,7 +91,7 @@ func (a *PreflightControllerAPIService) PreflightMultiLeg(ctx context.Context, a
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegResponse
-func (a *PreflightControllerAPIService) PreflightMultiLegExecute(r ApiPreflightMultiLegRequest) (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegResponse, *http.Response, error) {
+func (a *PreflightControllerAPIService) PreflightMultiLegExecute(r PreflightControllerAPIPreflightMultiLegRequest) (*ComHellopublicUserapigatewayApiRestPreflightPreflightMultiLegResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,19 +180,19 @@ func (a *PreflightControllerAPIService) PreflightMultiLegExecute(r ApiPreflightM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPreflightSingleLegRequest struct {
+type PreflightControllerAPIPreflightSingleLegRequest struct {
 	ctx context.Context
-	ApiService *PreflightControllerAPIService
+	ApiService PreflightControllerAPI
 	accountId string
 	comHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest *ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest
 }
 
-func (r ApiPreflightSingleLegRequest) ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest(comHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) ApiPreflightSingleLegRequest {
+func (r PreflightControllerAPIPreflightSingleLegRequest) ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest(comHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest) PreflightControllerAPIPreflightSingleLegRequest {
 	r.comHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest = &comHellopublicUserapigatewayApiRestPreflightPreflightSingleLegRequest
 	return r
 }
 
-func (r ApiPreflightSingleLegRequest) Execute() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegResponse, *http.Response, error) {
+func (r PreflightControllerAPIPreflightSingleLegRequest) Execute() (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegResponse, *http.Response, error) {
 	return r.ApiService.PreflightSingleLegExecute(r)
 }
 
@@ -170,10 +203,10 @@ Performs preflight calculations for a single-leg order (a transaction involving 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId
- @return ApiPreflightSingleLegRequest
+ @return PreflightControllerAPIPreflightSingleLegRequest
 */
-func (a *PreflightControllerAPIService) PreflightSingleLeg(ctx context.Context, accountId string) ApiPreflightSingleLegRequest {
-	return ApiPreflightSingleLegRequest{
+func (a *PreflightControllerAPIService) PreflightSingleLeg(ctx context.Context, accountId string) PreflightControllerAPIPreflightSingleLegRequest {
+	return PreflightControllerAPIPreflightSingleLegRequest{
 		ApiService: a,
 		ctx: ctx,
 		accountId: accountId,
@@ -182,7 +215,7 @@ func (a *PreflightControllerAPIService) PreflightSingleLeg(ctx context.Context, 
 
 // Execute executes the request
 //  @return ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegResponse
-func (a *PreflightControllerAPIService) PreflightSingleLegExecute(r ApiPreflightSingleLegRequest) (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegResponse, *http.Response, error) {
+func (a *PreflightControllerAPIService) PreflightSingleLegExecute(r PreflightControllerAPIPreflightSingleLegRequest) (*ComHellopublicUserapigatewayApiRestPreflightPreflightSingleLegResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
