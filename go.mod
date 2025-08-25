@@ -1,4 +1,4 @@
-module github.com/axylos/pub_client
+module github.com/axylos/pubclient
 
 go 1.18
 
